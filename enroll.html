@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enroll Now - Santa Ana Calm Waters Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('images/download (2).jpeg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      animation: zoomBG 30s ease-in-out infinite alternate;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInForm 1s ease-out forwards;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1f3c88;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInForm 0.6s ease-out forwards;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 0.3s; }
+    .form-group:nth-child(2) { animation-delay: 0.5s; }
+    .form-group:nth-child(3) { animation-delay: 0.7s; }
+    .form-group:nth-child(4) { animation-delay: 0.9s; }
+    .form-group:nth-child(5) { animation-delay: 1.1s; }
+    .form-group:nth-child(6) { animation-delay: 1.3s; }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #1f3c88;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1f3c88;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInForm 0.6s ease-out forwards;
+      animation-delay: 1.5s;
+    }
+
+    button:hover {
+      background-color: #3f51b5;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #666;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInForm 0.6s ease-out forwards;
+      animation-delay: 1.7s;
+    }
+
+    #success-screen {
+      display: none;
+      text-align: center;
+      animation: fadeInForm 1s ease forwards;
+    }
+
+    @keyframes fadeInForm {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomBG {
+      0% {
+        background-size: 100%;
+        background-position: center;
+      }
+      100% {
+        background-size: 110%;
+        background-position: top;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Enroll Now</h2>
+
+    <!-- ✅ FORM START -->
+    <form id="enroll-form" action="https://formspree.io/f/xvgrwnlv" method="POST">
+
+      <div class="form-group">
+        <label for="fullname">Full Name *</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Parent's Email *</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label for="studentAge">Student Age *</label>
+        <input type="number" id="studentAge" name="studentAge" required />
+      </div>
+
+      <div class="form-group">
+        <label for="grade">Grade to Enroll *</label>
+        <select id="grade" name="grade" required>
+          <option value="">-- Select Grade --</option>
+          <option value="Reception">Reception Class</option>
+          <option value="Pre-Primary 1">Pre-Primary 1</option>
+          <option value="Pre-Primary 2">Pre-Primary 2</option>
+          <option value="Grade 1">Grade 1</option>
+          <option value="Grade 2">Grade 2</option>
+          <option value="Grade 3">Grade 3</option>
+          <option value="Grade 4">Grade 4</option>
+          <option value="Grade 5">Grade 5</option>
+          <option value="Grade 6">Grade 6</option>
+          <option value="Grade 7">Grade 7</option>
+          <option value="Grade 8">Grade 8</option>
+          <option value="Grade 9">Grade 9</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Notes</label>
+        <textarea id="message" name="message" rows="4" placeholder="Optional"></textarea>
+      </div>
+
+      <button type="submit">Submit Enrollment</button>
+    </form>
+
+    <!-- ✅ SUCCESS MESSAGE -->
+    <div id="success-screen">
+      <h2 style="color: #1f3c88;">🎉 Enrollment Submitted!</h2>
+      <p>Thank you for enrolling. We will contact you within 24 hours.</p>
+      <a href="index.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #1f3c88; color: white; border-radius: 8px; text-decoration: none;">Back to Home</a>
+    </div>
+
+    <!-- ✅ CONTACT NOTE -->
+    <p class="note">We’ll get in touch within 24 hours.</p>
+    <p class="note">For any inquiries, contact us at calmwaters91@gmail.com</p>
+    <p class="note">or call us at +254 722 479 793.</p>
+    <p class="note">Thank you for choosing Santa Ana Calm Waters Academy!</p>
+
+  </div>
+
+  <script>
+    const form = document.getElementById("enroll-form");
+    const successScreen = document.getElementById("success-screen");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(() => {
+        form.style.display = "none";
+        successScreen.style.display = "block";
+      }).catch(() => {
+        alert("There was a problem submitting the form. Please try again.");
+      });
+    });
+  </script>
+
+</body>
+</html>
