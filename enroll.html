@@ -137,94 +137,11 @@
 
   <div class="form-container">
     <h2>Enroll Now</h2>
-
-    <!-- ✅ FORM START -->
-    <form id="enroll-form" action="mailto:calmwaters91@gmail.com" method="POST" enctype="text/plain">
-
-      <div class="form-group">
-        <label for="fullname">Full Name *</label>
-        <input type="text" id="fullname" name="fullname" required />
-      </div>
-
-      <div class="form-group">
-        <label for="email">Parent's Email *</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-
-      <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" name="phone" required />
-      </div>
-
-      <div class="form-group">
-        <label for="studentAge">Student Age *</label>
-        <input type="number" id="studentAge" name="studentAge" required />
-      </div>
-
-      <div class="form-group">
-        <label for="grade">Grade to Enroll *</label>
-        <select id="grade" name="grade" required>
-          <option value="">-- Select Grade --</option>
-          <option value="Reception">Reception Class</option>
-          <option value="Pre-Primary 1">Pre-Primary 1</option>
-          <option value="Pre-Primary 2">Pre-Primary 2</option>
-          <option value="Grade 1">Grade 1</option>
-          <option value="Grade 2">Grade 2</option>
-          <option value="Grade 3">Grade 3</option>
-          <option value="Grade 4">Grade 4</option>
-          <option value="Grade 5">Grade 5</option>
-          <option value="Grade 6">Grade 6</option>
-          <option value="Grade 7">Grade 7</option>
-          <option value="Grade 8">Grade 8</option>
-          <option value="Grade 9">Grade 9</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Additional Notes</label>
-        <textarea id="message" name="message" rows="4" placeholder="Optional"></textarea>
-      </div>
-
-      <button type="submit">Submit Enrollment</button>
-    </form>
-
-    <!-- ✅ SUCCESS MESSAGE -->
-    <div id="success-screen">
-      <h2 style="color: #1f3c88;">🎉 Enrollment Submitted!</h2>
-      <p>Thank you for enrolling. We will contact you within 24 hours.</p>
-      <a href="index.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #1f3c88; color: white; border-radius: 8px; text-decoration: none;">Back to Home</a>
-    </div>
-
-    <!-- ✅ CONTACT NOTE -->
-    <p class="note">We’ll get in touch within 24 hours.</p>
-    <p class="note">For any inquiries, contact us at calmwaters91@gmail.com</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeoqgT4F0xZRVg8MzF8luYjWWSwB72mNzlErmtxNYkZUIEyKA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <p class="note">For any inquiries, contact us at <a href="mailto:calmwaters91@gmail.com">calmwaters91@gmail.com</a></p>
     <p class="note">or call us at +254 722 479 793.</p>
     <p class="note">Thank you for choosing Santa Ana Calm Waters Academy!</p>
-
   </div>
-
-  <script>
-    const form = document.getElementById("enroll-form");
-    const successScreen = document.getElementById("success-screen");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(() => {
-        form.style.display = "none";
-        successScreen.style.display = "block";
-      }).catch(() => {
-        alert("There was a problem submitting the form. Please try again.");
-      });
-    });
-  </script>
 
 </body>
 </html>
