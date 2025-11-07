@@ -10,37 +10,271 @@
 <body>
   <header class="navbar">
   <div class="logo">
-    <img src="images/d20f1668-c215-4524-8657-3ad791475951_20250318_080030_0000 (2).png" alt="School Logo" />
+    <img src="images/school logo.png" alt="School Logo" />
   </div>
   <button id="menu-toggle" class="hamburger">☰</button>
   <nav id="nav-links">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="events.html">School Events</a></li>
-      <li><a href="gallery.html">Student's Gallery</a></li>
-      <li><a href="facilities.html">Facilities</a></li>
-      <li><a href="staff.html">Staff</a></li>
-      <li><a href="transport.html">Transport</a></li>
-      <li><a href="contact.html">Contact</a></li>
+     <li><a href="index.html">Home❤️</a></li>
+    <li><a href="events.html">School Events😊</a></li>
+    <li><a href="gallery.html">Student's Gallery😎</a></li>
+    <li><a href="facilities.html">Facilities🏫</a></li>
+    <li><a href="staff.html">Staff🙌</a></li>
+    <li><a href="transport.html">Transport🚌</a></li>
+    <li><a href="contact.html">Contact📲</a></li>
     </ul>
   </nav>
 </header>
 
 
-  <main class="section">
-    <h1>Student Gallery</h1>
-    <p>Explore some of our students' best moments through pictures of class activities, trips, and more!</p>
-    <!-- Add images in a grid -->
+  <main class="gallery-section">
+    <div class="gallery-header">
+      <h1>Student Gallery</h1>
+      <p>Explore some of our students' best moments through pictures of class activities, trips, and more!❤️🙌👌</p>
+    </div>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="trips">School Trips</button>
+      <button class="filter-btn" data-filter="presentations">Presentations</button>
+      <button class="filter-btn" data-filter="scouts">Scout Activities</button>
+      <button class="filter-btn" data-filter="rewards">Rewards & Recognition</button>
+      <button class="filter-btn" data-filter="students">Student Activities</button>
+      <button class="filter-btn" data-filter="staffphotos">Staff</button>
+      <button class="filter-btn" data-filter="guests">Special Guests</button>
+      <button class="filter-btn" data-filter="prayer">Prayer Day</button>
+      <button class="filter-btn" data-filter="projects">Class Projects</button>
+      <button class="filter-btn" data-filter="cultural">Cultural Day</button>
+      <button class="filter-btn" data-filter="funday">Fun Day</button>
+      <button class="filter-btn" data-filter="innovation">Innovation</button>
+      <button class="filter-btn" data-filter="staff">Staff</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
   </main>
+
   <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Mobile menu toggle
     const toggleBtn = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
-    toggleBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+    if (toggleBtn && navLinks) toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    // Build filename lists programmatically
+    const categories = {
+      trips: (() => {
+        const arr = ['TRIP.jpg'];
+        for (let i = 1; i <= 89; i++) arr.push(`TRIP ${i}.jpg`);
+        return arr;
+      })(),
+      presentations: (() => {
+        const arr = ['PRESENTATIONS.jpg'];
+        for (let i = 1; i <= 20; i++) arr.push(`PRESENTATIONS ${i}.jpg`);
+        return arr;
+      })(),
+      scouts: ['SCOUTS.jpg','SCOUT 1.jpg','SCOUTS 2.jpg','SCOUTS 4.jpg','SCOUTS 5.jpg','SCOUTS 6.jpg','SCOUTS 7.jpg','SCOUTS 8.jpg','SCOUTS 9.jpg','SCOUTS 10.jpg','SCOUTS 11.jpg','SCOUTS 12.jpg'],
+      rewards: (() => {
+        const arr = ['REWARDS.jpg'];
+        for (let i = 1; i <= 8; i++) arr.push(`REWARDS ${i}.jpg`);
+        return arr;
+      })(),
+      students: (() => {
+        const arr = ['STUDENTS.jpg'];
+        for (let i = 1; i <= 7; i++) arr.push(`STUDENTS ${i}.jpg`);
+        return arr;
+      })(),
+      staffphotos: (() => {
+        const arr = [];
+        // Base file
+        arr.push('TEACHERS 1.JPG');
+        // TEACHERS 3 has 30 photos numbered (1) through (30)
+        for (let i = 1; i <= 30; i++) {
+          arr.push(`TEACHERS 3 (${i}).JPG`);
+        }
+        return arr;
+      })(),
+      guests: (() => {
+        const arr = ['GUESTS.jpg'];
+        for (let i = 1; i <= 10; i++) {
+          arr.push(`GUESTS ${i}.jpg`);
+          arr.push(`GUESTS ${i} (${i}).jpg`);
+        }
+        return arr;
+      })(),
+      prayer: (() => {
+        const arr = [];
+        // Prayer day files: PRAYER DAY (1).JPG, PRAYER DAY (2).JPG, PRAYER DAY 1 (1).JPG, PRAYER DAY 1 (2).JPG
+        arr.push('PRAYER DAY (1).JPG');
+        arr.push('PRAYER DAY (2).JPG');
+        arr.push('PRAYER DAY 1 (1).JPG');
+        arr.push('PRAYER DAY 1 (2).JPG');
+        return arr;
+      })(),
+      projects: (() => {
+        const arr = [];
+        arr.push('CLASS PROJECTS.jpg');
+        arr.push('CLASS PROJECTS 1.jpg');
+        arr.push('CLASS PROJECTS 2.jpg');
+        return arr;
+      })(),
+      cultural: (() => {
+        const arr = [];
+        // CULTURAL DAY 1.jpg
+        arr.push('CULTURAL DAY 1.jpg');
+        // CULTURAL DAY 2 has files (1) through at least (9), check up to 50
+        // Skip (1).png as it's an AI-generated image
+        for (let i = 1; i <= 50; i++) {
+          if (i === 1) {
+            // Skip the .png version of (1) - it's AI generated
+            arr.push(`CULTURAL DAY 2 (${i}).jpg`);
+          } else {
+            arr.push(`CULTURAL DAY 2 (${i}).jpg`);
+            arr.push(`CULTURAL DAY 2 (${i}).png`);
+          }
+        }
+        // CULTURAL DAY 3 has many files, check up to 100
+        for (let i = 1; i <= 100; i++) {
+          arr.push(`CULTURAL DAY 3 (${i}).jpg`);
+          arr.push(`CULTURAL DAY 3 (${i}).png`);
+        }
+        // Check for more CULTURAL DAY patterns
+        for (let base = 4; base <= 10; base++) {
+          for (let i = 1; i <= 50; i++) {
+            arr.push(`CULTURAL DAY ${base} (${i}).jpg`);
+            arr.push(`CULTURAL DAY ${base} (${i}).png`);
+          }
+        }
+        return arr;
+      })(),
+      funday: (() => {
+        const arr = [];
+        // FUN DAY (1) through (5)
+        for (let i = 1; i <= 5; i++) {
+          arr.push(`FUN DAY (${i}).jpg`);
+        }
+        // FUN DAY 1 has files (1) through at least (9)
+        for (let i = 1; i <= 15; i++) {
+          arr.push(`FUN DAY 1 (${i}).jpg`);
+        }
+        // FUN DAY 2 has files (1) through at least (14)
+        for (let i = 1; i <= 20; i++) {
+          arr.push(`FUN DAY 2 (${i}).jpg`);
+        }
+        return arr;
+      })(),
+      innovation: (() => {
+        const arr = [];
+        // Note: Innovation files have double space before parenthesis
+        arr.push('INNOVATION  (1).jpg');
+        arr.push('INNOVATION  (2).jpg');
+        arr.push('INNOVATION  (3).jpg');
+        return arr;
+      })(),
+      staff: (() => {
+        const arr = [];
+        for (let i = 1; i <= 13; i++) arr.push(`STAFF ${i}.jpg`);
+        return arr;
+      })()
+    };
+
+    function tryLoadImage(src) {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = src;
+      });
+    }
+
+    async function addImages() {
+      // iterate categories in desired order
+      const order = ['trips','presentations','scouts','rewards','students','staffphotos','guests','prayer','projects','cultural','funday','innovation','staff'];
+      for (const cat of order) {
+        for (const name of categories[cat]) {
+          // Skip AI-generated images and school logo
+          if (name.includes('Gemini_Generated_Image')) continue;
+          if (name.includes('ChatGPT Image')) continue;
+          if (name.includes('school logo')) continue;
+          
+          const path = `images/${name}`;
+          // try loading image; skip if not present or fails
+          const ok = await tryLoadImage(path);
+          if (!ok) continue;
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.dataset.category = cat;
+          const baseTitle = name.replace(/\.[^.]+$/, '');
+          let description;
+          switch(cat) {
+            case 'trips':
+              description = 'School Field Trip Memory';
+              break;
+            case 'presentations':
+              description = 'Student Presentation';
+              break;
+            case 'scouts':
+              description = 'Scout Activity';
+              break;
+            case 'rewards':
+              description = 'Awarding Ceremony🎁🎁';
+              break;
+            case 'students':
+              description = 'Student Activity';
+              break;
+            case 'staffphotos':
+              description = 'Our Dedicated Staff';
+              break;
+            case 'guests':
+              description = 'Special Guests Visit';
+              break;
+              break;
+            case 'prayer':
+              description = 'Prayer Day Celebration';
+              break;
+            case 'projects':
+              description = 'Class Project Showcase';
+              break;
+            case 'cultural':
+              description = 'Cultural Day Festivities';
+              break;
+            case 'funday':
+              description = 'Fun Day Activities';
+              break;
+            case 'innovation':
+              description = 'Innovation & Creativity';
+              break;
+            case 'staff':
+              description = 'Our Amazing Staff';
+              break;
+          }
+          item.innerHTML = `<img src="${path}" alt="${description}" title="${description}" loading="eager" decoding="sync" fetchpriority="high" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;"><div class="gallery-item-overlay"><h3>${description}</h3></div>`;
+          galleryGrid.appendChild(item);
+        }
+      }
+      initFiltering();
+    }
+
+    function initFiltering() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          button.classList.add('active');
+          const filter = button.getAttribute('data-filter');
+          galleryItems.forEach(item => {
+            item.style.display = (filter === 'all' || item.getAttribute('data-category') === filter) ? 'block' : 'none';
+          });
+        });
+      });
+    }
+
+    // Start populating the gallery
+    if (galleryGrid) addImages();
   });
-</script>
+  </script>
 
 </body>
 </html>

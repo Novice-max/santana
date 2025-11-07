@@ -1,4 +1,3 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,46 +5,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Santa Ana Calm Waters Academy</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <header class="navbar">
-  <div class="logo">
-    <img src="images/d20f1668-c215-4524-8657-3ad791475951_20250318_080030_0000 (2).png" alt="School Logo" />
-  </div>
-  <button id="menu-toggle" class="hamburger">☰</button>
-  <nav id="nav-links">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="events.html">School Events</a></li>
-      <li><a href="gallery.html">Student's Gallery</a></li>
-      <li><a href="facilities.html">Facilities</a></li>
-      <li><a href="staff.html">Staff</a></li>
-      <li><a href="transport.html">Transport</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="logo">
+      <img src="images\school logo.png" alt="School Logo" />
+    </div>
+    <button id="menu-toggle" class="hamburger">☰</button>
+    <nav id="nav-links">
+      <ul>
+        <li><a href="index.html">Home❤️</a></li>
+        <li><a href="events.html">School Events😊</a></li>
+        <li><a href="gallery.html">Student's Gallery😎</a></li>
+        <li><a href="facilities.html">Facilities🏫</a></li>
+        <li><a href="staff.html">Staff🙌</a></li>
+        <li><a href="transport.html">Transport🚌</a></li>
+        <li><a href="contact.html">Contact📲</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
-  <main class="section">
+  <main class="section contact-section">
     <h1>Contact Us</h1>
-    <p>Reach out to us through email, phone, or visit our campus. We’re here to help.</p>
-    <ul>
-      <li>Email: calmwaters91@gmail.com</li>
-      <li>Phone: +254 742935110</li>
-      <li>WhatsApp: <a href="https://wa.me/254742935110" target="_blank">Click to Chat</a></li>
-      <li>Location: Two Rivers Estate, Githunguri Road, Ruiru</li>
-    </ul>
+    <p>Reach out to us through email, phone, or visit our campus. We're here to help.</p>
+    
+    <!-- Dashboard Status Widget -->
+    <div class="contact-card" style="margin-bottom: 2rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+        <!-- Office Hours & Status -->
+        <div>
+          <h3 style="margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-clock" style="color: #667eea;"></i> Office Hours & Status
+          </h3>
+          <div style="background: rgba(102, 126, 234, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;">
+            <p style="margin: 0 0 0.5rem 0;"><strong>📅 Monday - Friday:</strong> 7:00 AM - 5:00 PM</p>
+            <p style="margin: 0 0 0.5rem 0;"><strong>📅 Saturday:</strong> 8:00 AM - 2:00 PM</p>
+            <p style="margin: 0 0 0.8rem 0;"><strong>📅 Sunday:</strong> Closed</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1);">
+              <span style="font-size: 1.2rem;">🔔</span>
+              <strong>Currently:</strong> <span id="officeStatus" style="color: #2ecc71; font-weight: bold; font-size: 1.1rem;">Open</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Response Times -->
+        <div>
+          <h3 style="margin: 0 0 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-reply" style="color: #667eea;"></i> Response Times
+          </h3>
+          <div style="background: rgba(46, 204, 113, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #2ecc71;">
+            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+              <div style="background: #2ecc71; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-phone" style="color: white; font-size: 16px;"></i>
+              </div>
+              <div>
+                <strong>Phone Call:</strong> <span style="color: #2ecc71; font-weight: 600;">⚡ Immediate</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+              <div style="background: #25d366; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fab fa-whatsapp" style="color: white; font-size: 16px;"></i>
+              </div>
+              <div>
+                <strong>WhatsApp:</strong> <span style="color: #25d366; font-weight: 600;">⚡ Instant</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <div style="background: #8e44ad; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-envelope" style="color: white; font-size: 16px;"></i>
+              </div>
+              <div>
+                <strong>Email:</strong> <span style="color: #8e44ad; font-weight: 600;">📧 Within 24hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-container">
+      <!-- Phone Contact Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-phone" style="margin-right: 0.5rem;"></i>Phone Call</h2>
+        <div class="contact-item">
+          <div class="icon-circle green"><i class="fas fa-phone"></i></div>
+          <div>
+            <p><strong>+254 742 935 110</strong></p>
+            <p>Speak directly with us</p>
+          </div>
+        </div>
+        <a href="tel:+254742935110" style="display: block; background: #2ecc71; color: white; padding: 0.8rem; text-align: center; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+
+      <!-- Email Contact Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Email</h2>
+        <div class="contact-item">
+          <div class="icon-circle purple"><i class="fas fa-envelope"></i></div>
+          <div>
+            <p><strong>calmwaters91@gmail.com</strong></p>
+            <p>Detailed inquiries welcome</p>
+          </div>
+        </div>
+        <a href="mailto:calmwaters91@gmail.com" style="display: block; background: #8e44ad; color: white; padding: 0.8rem; text-align: center; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+          <i class="fas fa-envelope"></i> Send Email
+        </a>
+      </div>
+
+      <!-- WhatsApp Contact Card -->
+      <div class="contact-card">
+        <h2><i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i>WhatsApp</h2>
+        <div class="contact-item">
+          <div class="icon-circle green"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <p><strong>+254 742 935 110</strong></p>
+            <p>Instant messaging & calls</p>
+          </div>
+        </div>
+        <a href="https://wa.me/254742935110?text=Hello%20Santa%20Ana%20Calm%20Waters%20Academy" target="_blank" style="display: block; background: #25d366; color: white; padding: 0.8rem; text-align: center; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+
+      <!-- Visit Us Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>Visit Us</h2>
+        <div class="contact-item">
+          <div class="icon-circle map"><i class="fas fa-school"></i></div>
+          <div>
+            <p><strong>Two Rivers Estate</strong></p>
+            <p>Githunguri Road, Ruiru</p>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Two+Rivers+Estate+Ruiru" target="_blank" style="display: block; background: #3498db; color: white; padding: 0.8rem; text-align: center; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+          <i class="fas fa-map-marked-alt"></i> Get Directions
+        </a>
+      </div>
+
+      <!-- Office Hours Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-clock" style="margin-right: 0.5rem;"></i>Office Hours</h2>
+        <div class="contact-item">
+          <div class="icon-circle grey"><i class="fas fa-clock"></i></div>
+          <div>
+            <p><strong>Monday - Friday:</strong> 7:00 AM - 5:00 PM</p>
+            <p><strong>Saturday:</strong> 8:00 AM - 2:00 PM</p>
+            <p><strong>Sunday:</strong> Closed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-share-nodes" style="margin-right: 0.5rem;"></i>Follow Us</h2>
+        <p style="margin-bottom: 1.5rem; color: #666;">Stay connected with our school community</p>
+        
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/santanacalmwatersacademy/" target="_blank" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div class="icon-circle fb"><i class="fab fa-facebook-f"></i></div>
+            <span style="color: #3b5998; font-weight: 600;">Facebook</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/santaanacalmwatersacademy/tagged/" target="_blank" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div class="icon-circle ig"><i class="fab fa-instagram"></i></div>
+            <span style="color: #e1306c; font-weight: 600;">Instagram</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/254742935110" target="_blank" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div class="icon-circle green"><i class="fab fa-whatsapp"></i></div>
+            <span style="color: #25d366; font-weight: 600;">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Directory -->
+    <div class="contact-card" style="margin-top: 2rem;">
+      <h2><i class="fas fa-address-book" style="margin-right: 0.5rem;"></i>Department Contacts</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #3498db;">
+          <h3 style="margin-top: 0; color: #3498db;"><i class="fas fa-user-tie"></i> Admissions</h3>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-phone"></i> +254 742 935 110</p>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-envelope"></i> calmwaters91@gmail.com</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">New student enrollment & registration</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #e74c3c;">
+          <h3 style="margin-top: 0; color: #e74c3c;"><i class="fas fa-graduation-cap"></i> Academic</h3>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-phone"></i> +254 742 935 110</p>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-envelope"></i> calmwaters91@gmail.com</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Curriculum & academic programs</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #f39c12;">
+          <h3 style="margin-top: 0; color: #f39c12;"><i class="fas fa-bus"></i> Transport</h3>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-phone"></i> +254 742 935 110</p>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-envelope"></i> calmwaters91@gmail.com</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">School bus services & routes</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #2ecc71;">
+          <h3 style="margin-top: 0; color: #2ecc71;"><i class="fas fa-dollar-sign"></i> Finance</h3>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-phone"></i> +254 742 935 110</p>
+          <p style="margin: 0.5rem 0;"><i class="fas fa-envelope"></i> calmwaters91@gmail.com</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Fee payments & financial inquiries</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="contact-card" style="margin-top: 2rem;">
+      <h2><i class="fas fa-map" style="margin-right: 0.5rem;"></i>Find Us on the Map</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.477209886604!2d36.95167!3d-1.1501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f6b3b6b6b6b%3A0x0!2sTwo%20Rivers%20Estate%2C%20Ruiru!5e0!3m2!1sen!2ske!4v1699285600000!5m2!1sen!2ske" 
+          width="100%" 
+          height="450" 
+          style="border:0; border-radius: 8px;" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <p style="text-align: center; margin-top: 1rem;">
+        <i class="fas fa-location-dot"></i> <strong>Address:</strong> Two Rivers Estate, Githunguri Road, Ruiru, Kenya
+      </p>
+      <p style="text-align: center; margin-top: 0.5rem;">
+        <a href="https://www.google.com/maps/search/Two+Rivers+Estate+Githunguri+Road+Ruiru+Kenya" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">
+          <i class="fas fa-directions"></i> Get Directions on Google Maps
+        </a>
+      </p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="contact-card" style="margin-top: 2rem;">
+      <h2><i class="fas fa-question-circle" style="margin-right: 0.5rem;"></i>Frequently Asked Questions</h2>
+      
+      <div class="faq-item" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1rem 0;">
+        <h3 style="cursor: pointer; margin: 0;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+          <i class="fas fa-chevron-down"></i> What are your admission requirements?
+        </h3>
+        <p style="margin: 0.5rem 0 0 1.5rem; display: none;">
+          We require birth certificate, previous school reports, and completed application form. Contact our admissions office for detailed requirements.
+        </p>
+      </div>
+
+      <div class="faq-item" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1rem 0;">
+        <h3 style="cursor: pointer; margin: 0;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+          <i class="fas fa-chevron-down"></i> Do you offer transport services?
+        </h3>
+        <p style="margin: 0.5rem 0 0 1.5rem; display: none;">
+          Yes! We provide safe and reliable transport covering Ruiru, Juja, Kahawa, and surrounding areas. Visit our Transport page for more details.
+        </p>
+      </div>
+
+      <div class="faq-item" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1rem 0;">
+        <h3 style="cursor: pointer; margin: 0;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+          <i class="fas fa-chevron-down"></i> Can I schedule a campus tour?
+        </h3>
+        <p style="margin: 0.5rem 0 0 1.5rem; display: none;">
+          Absolutely! Call us at +254 742 935 110 or WhatsApp to schedule a personalized campus tour. We'd love to show you around!
+        </p>
+      </div>
+
+      <div class="faq-item" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1rem 0;">
+        <h3 style="cursor: pointer; margin: 0;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+          <i class="fas fa-chevron-down"></i> What is your fee structure?
+        </h3>
+        <p style="margin: 0.5rem 0 0 1.5rem; display: none;">
+          Please contact our Finance Office for detailed fee structure and payment plans. We offer flexible payment options.
+        </p>
+      </div>
+    </div>
   </main>
+
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggleBtn = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggleBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+
+      // Office Status Checker
+      function updateOfficeStatus() {
+        const now = new Date();
+        const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+        const hours = now.getHours();
+        const statusElement = document.getElementById('officeStatus');
+        
+        let isOpen = false;
+        
+        // Monday - Friday: 7 AM - 5 PM
+        if (day >= 1 && day <= 5) {
+          isOpen = hours >= 7 && hours < 17;
+        }
+        // Saturday: 8 AM - 2 PM
+        else if (day === 6) {
+          isOpen = hours >= 8 && hours < 14;
+        }
+        // Sunday: Closed
+        
+        if (isOpen) {
+          statusElement.textContent = 'Open';
+          statusElement.style.color = '#2ecc71';
+        } else {
+          statusElement.textContent = 'Closed';
+          statusElement.style.color = '#e74c3c';
+        }
+      }
+      
+      // Update status on load and every minute
+      updateOfficeStatus();
+      setInterval(updateOfficeStatus, 60000);
     });
-  });
-</script>
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Santa Ana Calm Waters Academy. All Rights Reserved.</p>
+    <p>For a greater generation join us in our quest to build leaders of tommorrow</p>
+  </footer>
+
+  
 
 </body>
 </html>
