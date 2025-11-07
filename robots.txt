@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+# Important pages for crawling
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /gallery.html
+Allow: /events.html
+Allow: /staff.html
+Allow: /facilities.html
+Allow: /transport.html
+Allow: /enroll.html
+
+# Allow CSS and JS files
+Allow: /styles.css
+Allow: /backup.css
+Allow: /*.js
+
+# Allow important images
+Allow: /images/school\ logo.png
+Allow: /images/*.jpg
+Allow: /images/*.png
+
+# Disallow temporary and backup files
+Disallow: /temp_note.txt
+Disallow: /*.tmp
+Disallow: /*.bak
+
+# XML Sitemap location
+Sitemap: https://santanacalmwatersacademy.com/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1

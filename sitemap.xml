@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage - Highest priority -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/school%20logo.png</image:loc>
+      <image:title>Santa Ana Calm Waters Academy Logo</image:title>
+    </image:image>
+  </url>
+
+  <!-- About/Index page -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/index.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Contact page - High priority for local SEO -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/contact.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Enrollment page - High priority for conversions -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/enroll.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Events page - Medium-high priority -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/events.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gallery page - High priority for visual content -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/gallery.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/STUDENTS%201.jpg</image:loc>
+      <image:title>Santa Ana Students Activities</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/TRIP%2044.jpg</image:loc>
+      <image:title>School Trip Photos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/CULTURAL%20DAY%201.jpg</image:loc>
+      <image:title>Cultural Day Celebrations</image:title>
+    </image:image>
+  </url>
+
+  <!-- Staff page - Medium priority -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/staff.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/Director.jpeg</image:loc>
+      <image:title>School Director</image:title>
+    </image:image>
+  </url>
+
+  <!-- Facilities page - Medium priority -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/facilities.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Transport page - Medium priority -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/transport.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://santanacalmwatersacademy.com/images/BUS.jpg</image:loc>
+      <image:title>School Transport Bus</image:title>
+    </image:image>
+  </url>
+
+  <!-- SEO Landing Pages - High priority for search visibility -->
+  <url>
+    <loc>https://santanacalmwatersacademy.com/cia-school-ruiru.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://santanacalmwatersacademy.com/cbe-schools-ruiru.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
