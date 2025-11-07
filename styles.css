@@ -2962,8 +2962,10 @@ img {
 .event-card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
 }
 
 .event-content {
@@ -3358,6 +3360,184 @@ img {
   font-size: 1.8rem;
 }
 
+/* Circular Staff Design for Transport Section */
+.circle-staff-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.circle-staff-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 2rem 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle-staff-item:nth-child(even) {
+  flex-direction: row-reverse;
+  animation-delay: -3s;
+}
+
+.circle-half {
+  position: relative;
+  margin: 0 2rem;
+  transition: transform 0.3s ease;
+}
+
+.circle-half:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.circle-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #66003a 0%, #8b0049 100%);
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(102, 0, 58, 0.3);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.circle-image img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.circle-content {
+  width: 350px;
+  min-height: 200px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 15px 40px rgba(102, 0, 58, 0.2);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid #66003a;
+  position: relative;
+  animation: bounce 5s ease-in-out infinite;
+}
+
+.circle-content::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #66003a, #8b0049, #66003a);
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.6;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.circle-content h3 {
+  color: #66003a;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.circle-content .staff-role {
+  color: #8b0049;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  background: rgba(139, 0, 73, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+
+.circle-content p:last-child {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse Animation for Images */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 15px 35px rgba(102, 0, 58, 0.3);
+  }
+  50% {
+    box-shadow: 0 20px 45px rgba(102, 0, 58, 0.5);
+  }
+}
+
+/* Bounce Animation for Content Boxes */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+/* Glow Animation for Box Border */
+@keyframes glow {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .circle-staff-item {
+    flex-direction: column !important;
+    gap: 2rem;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .circle-image {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .circle-image img {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .circle-content {
+    width: 300px;
+    padding: 2rem;
+  }
+  
+  .circle-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .circle-half {
+    margin: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .staff-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -3367,5 +3547,164 @@ img {
   .staff-photo {
     width: 150px;
     height: 150px;
+  }
+}
+
+/* Student Welfare Page Styles */
+.student-welfare-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.welfare-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.welfare-categories {
+  margin: 3rem 0;
+}
+
+.care-timeline {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.care-item {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(102, 0, 58, 0.1);
+  border-left: 4px solid #66003a;
+}
+
+.care-time {
+  background: linear-gradient(135deg, #66003a 0%, #8b0049 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 120px;
+  text-align: center;
+  margin-right: 2rem;
+}
+
+.care-activity h4 {
+  color: #66003a;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.care-activity p {
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.parent-partnership {
+  margin: 3rem 0;
+}
+
+.partnership-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+
+.partnership-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.partnership-text li {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(102, 0, 58, 0.1);
+}
+
+.partnership-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-box {
+  background: linear-gradient(135deg, #66003a 0%, #8b0049 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(102, 0, 58, 0.3);
+}
+
+.stat-box h4 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.stat-box p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.welfare-policies {
+  margin: 3rem 0;
+}
+
+.welfare-contact {
+  text-align: center;
+  max-width: 800px;
+  margin: 3rem auto;
+}
+
+.welfare-commitment {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  border: 2px solid #66003a;
+}
+
+@media (max-width: 768px) {
+  .care-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .care-time {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+  
+  .partnership-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .partnership-stats {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .stat-box {
+    padding: 1.5rem;
+  }
+  
+  .stat-box h4 {
+    font-size: 2rem;
   }
 }
