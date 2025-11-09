@@ -85,7 +85,7 @@
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+254742935110",
+  "telephone": "+254742935110/+254722479793",
     "contactType": "customer service",
     "email": "calmwaters91@gmail.com",
     "availableLanguage": ["English", "Kiswahili"]
@@ -166,7 +166,7 @@
     "longitude": 36.9489161
   },
   "url": "https://santanacalmwatersacademy.com/",
-  "telephone": "+254742935110",
+  "telephone": "+254742935110/+254722479793",
   "email": "calmwaters91@gmail.com",
   "openingHoursSpecification": [
     {
@@ -233,13 +233,18 @@
   <a href="https://www.instagram.com/santaanacalmwatersacademy/tagged/" target="_blank" class="instagram">
     <i class="fab fa-instagram"></i><span>Instagram</span>
   </a>
-  <a href="https://wa.me/254742935110" target="_blank" class="whatsapp">
-  <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+  <a href="#" class="whatsapp" id="whatsapp-float-link"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
 </a>
 
   <a href="https://www.facebook.com/santanacalmwatersacademy/" target="_blank" class="facebook">
     <i class="fab fa-facebook-f"></i><span>Facebook</span>
   </a>
+</div>
+<div id="whatsapp-choice-menu" style="display:none; position:fixed; top:80px; left:20px; z-index:9999; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); padding:1rem;">
+  <p style="margin:0 0 0.5rem 0; font-weight:bold;">Chat on WhatsApp:</p>
+  <a href="https://wa.me/254742935110" target="_blank" style="display:block; margin-bottom:0.5rem; color:#25d366; text-decoration:none; font-weight:500;">+254 742 935 110</a>
+  <a href="https://wa.me/254722479793" target="_blank" style="display:block; color:#25d366; text-decoration:none; font-weight:500;">+254 722 479 793</a>
+  <button onclick="document.getElementById('whatsapp-choice-menu').style.display='none'" style="margin-top:0.5rem; background:#eee; border:none; border-radius:4px; padding:0.3rem 0.8rem; cursor:pointer;">Cancel</button>
 </div>
 
   <!-- Header & Navigation -->
@@ -247,13 +252,17 @@
     <div class="logo">
       <img src="images\school logo.png" alt="School Logo" />
     </div>
-    <button id="menu-toggle" class="hamburger">☰</button>
+    <button id="menu-toggle" class="hamburger" aria-label="Open menu">
+      <span class="hamburger-dot"></span>
+      <span class="hamburger-dot"></span>
+      <span class="hamburger-dot"></span>
+    </button>
     <nav id="nav-links">
   <ul>
     <li><a href="index.html">Home❤️</a></li>
     <li><a href="events.html">School Events😊</a></li>
     <li><a href="gallery.html">Student's Gallery😎</a></li>
-    <li><a href="facilities.html">Facilities🏫</a></li>
+    <li><a href="facilities.html">Student Welfare💝</a></li>
     <li><a href="staff.html">Staff🙌</a></li>
     <li><a href="transport.html">Transport🚌</a></li>
     <li><a href="contact.html">Contact📲</a></li>
@@ -266,24 +275,27 @@
    <!-- Slideshow Background -->
       <section class="hero">
   <div class="hero-slideshow">
-  <img src="images/BUS.jpg" class="slide active" loading="eager" decoding="sync" fetchpriority="high">
-  <img src="images/PRESENTATIONS 1.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 4.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 5.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 8.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 9.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 10.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 12.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 13.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 14.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/PRESENTATIONS 20.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/SCOUTS 5.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/SCOUT 1.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/STAFF 1.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/STAFF 11.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/STUDENTS 1.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/STUDENTS 5.jpg" class="slide" loading="eager" decoding="sync">
-  <img src="images/TRIP 24.jpg" class="slide" loading="eager" decoding="sync">
+  <img src="images/CULTURAL DAY 6 (1).jpg" class="slide active" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 2 (2).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 3 (5).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 4 (7).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 1.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 4.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 5.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 8.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 9.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 10.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 12.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 13.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 14.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/PRESENTATIONS 20.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/SCOUTS 5.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/SCOUT 1.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/STAFF 1.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/STAFF 11.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/STUDENTS 1.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/STUDENTS 5.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/TRIP 24.jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
   <img src="images/TRIP 37.jpg" class="slide" loading="eager" decoding="sync">
   <img src="images/TRIP 44.jpg" class="slide" loading="eager" decoding="sync">
   <img src="images/TRIP 48.jpg" class="slide" loading="eager" decoding="sync">
@@ -295,6 +307,13 @@
   <img src="images/TRIP 76.jpg" class="slide" loading="eager" decoding="sync">
   <img src="images/TRIP 80.jpg" class="slide" loading="eager" decoding="sync">
   <img src="images/TRIP 85.jpg" class="slide" loading="eager" decoding="sync">
+  <!-- Additional Cultural Day Images -->
+  <img src="images/CULTURAL DAY 2 (3).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 3 (10).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 3 (15).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 4 (2).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 5 (5).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
+  <img src="images/CULTURAL DAY 6 (2).jpg" class="slide" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;">
   </div>
   <div class="hero-content">
     <h1 class="typing-text"><span id="typed-text">Santa Ana Calm Waters Academy (CIA) - Best CBE School in Ruiru</span><span class="cursor">|</span></h1>
@@ -431,12 +450,12 @@
     </div>
 <div class="day-block">
       <strong>Contact Us</strong><br />
-      <a href="tel:+254742935110">+254 742 935 110</a><br />
-      <p>Need assistance beyond hours? <a href="calmwaters91@gmail.com">Email us anytime</a>.</p>
+  <a href="tel:+254742935110">+254 742 935 110</a> / <a href="tel:+254722479793">+254 722 479 793</a><br />
+  <p>Need assistance beyond hours? <a href="mailto:calmwaters91@gmail.com">Email us anytime</a>.</p>
   </div>
   <div class="after-hours-info">
   <h4>After-Hours Assistance</h4>
-  <p>For urgent academic or administrative concerns, please call: <br /><strong>+254 742 935 110</strong></p>
+  <p>For urgent academic or administrative concerns, please call: <br /><strong><a href="tel:+254742935110">+254 742 935 110</a> / <a href="tel:+254722479793">+254 722 479 793</a></strong></p>
 </div>
 
 </section>
@@ -584,21 +603,20 @@
     <div class="admissions-steps" data-aos="fade-right">
       <h3>Enrollment Process</h3>
       <ol>
-        <li>Visit our school or contact us via WhatsApp or phone.</li>
-        <li>Collect or download the admission form.</li>
-        <li>Submit the completed form with required documents.</li>
-        <li>Attend a brief parent-student interview.</li>
-        <li>Receive admission confirmation and join orientation.</li>
+  <li>Visit our school or contact us via WhatsApp or phone.</li>
+  <li>Collect the admission form at the school.</li>
+  <li>Submit the completed form with required documents.</li>
+  <li>Attend a brief parent-student interview.</li>
+  <li>Receive admission confirmation and join orientation.</li>
       </ol>
     </div>
 
     <!-- Right Column -->
     <div class="admissions-cta card" data-aos="fade-left">
-      <h3>Ready to Join?</h3>
-      <p>Enrollment ongoing from Reception to Grade 9.</p>
-      <a href="downloads/admission_form.pdf" class="btn download-btn" download>📄 Download Form</a>
-      <a href="https://wa.me/254742935110" target="_blank" class="btn whatsapp-btn">💬 Chat on WhatsApp</a>
-      <a href="#contact" class="btn contact-btn">📞 Call or Visit</a>
+  <h3>Ready to Join?</h3>
+  <p>Enrollment ongoing from Reception to Grade 9.</p>
+  <a href="https://wa.me/254742935110" target="_blank" class="btn whatsapp-btn">💬 Chat on WhatsApp: <a href="https://wa.me/254742935110" target="_blank">+254 742 935 110</a> / <a href="https://wa.me/254722479793" target="_blank">+254 722 479 793</a></a>
+  <a href="#contact" class="btn contact-btn">📞 Call or Visit</a>
     </div>
   </div>
 </section>
@@ -638,7 +656,7 @@
 
     <div class="testimonial-egg egg5" data-aos="zoom-in" data-aos-delay="400">
       <div class="testimonial-content">
-        <p>"Santa Ana teaches not only academics but godly values too. The change is visible!"</p>
+        <p>"Santa Ana teaches not only academics but Godly values too. The change is visible!"</p>
         <h4>– Mama Mercy</h4>
       </div>
     </div>
@@ -741,17 +759,17 @@
 
       <div class="contact-item">
         <div class="icon-circle green"><i class="fas fa-envelope"></i></div>
-        <p>Email: calmwaters91@gmail.com</p>
+  <p>Email: <a href="mailto:calmwaters91@gmail.com">calmwaters91@gmail.com</a></p>
       </div>
 
       <div class="contact-item">
         <div class="icon-circle purple"><i class="fas fa-phone"></i></div>
-        <p>Phone: +254 742935110</p>
+  <p>Phone: <a href="tel:+254742935110">+254 742 935 110</a> / <a href="tel:+254722479793">+254 722 479 793</a></p>
       </div>
 
       <div class="contact-item">
         <div class="icon-circle blue"><i class="fab fa-whatsapp"></i></div>
-        <p>WhatsApp: +254 742935110</p>
+  <p>WhatsApp: <a href="https://wa.me/254742935110" target="_blank">+254 742 935 110</a> / <a href="https://wa.me/254722479793" target="_blank">+254 722 479 793</a></p>
       </div>
 
       <div class="contact-item">
@@ -766,7 +784,7 @@
 
       <div class="contact-item">
         <div class="icon-circle map"><i class="fas fa-map-marker-alt"></i></div>
-        <p><a href="https://www.google.com/maps/place/SANTA+ANA+CALM+WATERS+ACADEMY-PRI+SCH/@-1.1400202,36.9489161,20.5z" target="_blank">View on Google Maps</a></p>
+  <p><a href="https://www.google.com/maps/dir/?api=1&destination=-1.1400202,36.9489161" target="_blank">Get Directions (from your location)</a></p>
       </div>
 
       <div class="contact-item">
@@ -1037,12 +1055,52 @@ startSlideshow('core-values-slideshow');
     <a href="index.html">Home❤️</a>
     <a href="events.html">School Events😊</a>
     <a href="gallery.html">Student's Gallery😎</a>
-    <a href="facilities.html">Facilities🏫</a>
+    <a href="facilities.html">Student Welfare💝</a>
     <a href="staff.html">Staff🙌</a>
     <a href="transport.html">Transport🚌</a>
     <a href="contact.html">Contact📲</a>
   </nav>
 
 </body>
+<script>
+// Floating WhatsApp icon choice menu logic
+document.addEventListener('DOMContentLoaded', function() {
+  var floatLink = document.getElementById('whatsapp-float-link');
+  var menu = document.getElementById('whatsapp-choice-menu');
+  if (floatLink && menu) {
+    floatLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Get the icon's position
+      var rect = floatLink.getBoundingClientRect();
+      // Calculate menu position: above the icon
+      var scrollY = window.scrollY || window.pageYOffset;
+      var scrollX = window.scrollX || window.pageXOffset;
+      var menuHeight = menu.offsetHeight || 120;
+      var top = rect.top + scrollY - menuHeight - 12; // 12px gap above icon
+      var left = rect.left + scrollX;
+      // If menu would go off top, place below icon
+      if (top < 0) top = rect.bottom + scrollY + 12;
+      menu.style.position = 'absolute';
+      menu.style.top = top + 'px';
+      menu.style.left = left + 'px';
+      menu.style.display = 'block'; // Always show instantly
+    });
+    // Hide menu if clicking outside
+    document.addEventListener('click', function(e) {
+      if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== floatLink) {
+        menu.style.display = 'none';
+      }
+    });
+    // Hide menu on scroll
+    window.addEventListener('scroll', function() {
+      if (menu.style.display === 'block') menu.style.display = 'none';
+    });
+    // Hide menu on resize
+    window.addEventListener('resize', function() {
+      if (menu.style.display === 'block') menu.style.display = 'none';
+    });
+  }
+});
+</script>
 </html>
 

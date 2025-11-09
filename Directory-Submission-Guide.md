@@ -10,7 +10,7 @@
 - **Listing Info:**
   - School Name: Santa Ana Calm Waters Academy (CIA)
   - Location: Ruiru, Kiambu County
-  - Phone: +254 742 935 110
+  - Phone: +254 742 935 110/+254 722479793
   - Email: calmwaters91@gmail.com
   - Website: https://santanacalmwatersacademy.com/
   - Description: "Leading CBE school in Ruiru offering quality Christian education from Reception to Grade 9. Modern facilities, experienced teachers, and holistic development."
