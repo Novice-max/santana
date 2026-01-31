@@ -1,0 +1,13 @@
+{
+  "name": "santana-whatsapp-autoresponder",
+  "version": "1.0.0",
+  "description": "Simple Express webhook to auto-reply on WhatsApp via Twilio",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "twilio": "^4.16.0"
+  }
+}
