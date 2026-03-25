@@ -514,23 +514,26 @@ document.addEventListener('DOMContentLoaded', function() {
   var floatLink = document.getElementById('whatsapp-float-link');
   var menu = document.getElementById('whatsapp-choice-menu');
   if (floatLink && menu) {
+
+    // Pre-style menu as fixed so no position calculation needed
+    menu.style.position = 'fixed';
+    menu.style.bottom = '90px';
+    menu.style.left = '16px';
+    menu.style.top = 'auto';
+
     floatLink.addEventListener('click', function(e) {
       e.preventDefault();
-      var rect = floatLink.getBoundingClientRect();
-      var scrollY = window.scrollY || window.pageYOffset;
-      var menuHeight = menu.offsetHeight || 120;
-      var top = rect.top + scrollY - menuHeight - 12;
-      if (top < 0) top = rect.bottom + scrollY + 12;
-      menu.style.position = 'absolute';
-      menu.style.top = top + 'px';
-      menu.style.left = (rect.left + (window.scrollX || 0)) + 'px';
-      menu.style.display = 'block';
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
+
     document.addEventListener('click', function(e) {
-      if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== floatLink) menu.style.display = 'none';
+      if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== floatLink) {
+        menu.style.display = 'none';
+      }
     });
-    window.addEventListener('scroll', function() { if (menu.style.display === 'block') menu.style.display = 'none'; });
-    window.addEventListener('resize', function() { if (menu.style.display === 'block') menu.style.display = 'none'; });
+
+    window.addEventListener('scroll', function() { menu.style.display = 'none'; });
+    window.addEventListener('resize', function() { menu.style.display = 'none'; });
   }
 });
 </script>
