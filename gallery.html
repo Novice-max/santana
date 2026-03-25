@@ -1,312 +1,369 @@
-<!-- gallery.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>Student Gallery - Santa Ana Calm Waters Academy (CIA) | CBE School Photos & Activities in Ruiru</title>
-  <meta name="description" content="Explore Santa Ana Calm Waters Academy (CIA) student gallery. Photos of school trips, presentations, cultural days, sports, and student activities. See life at the best CBE school in Ruiru!" />
-  <meta name="keywords" content="Santa Ana gallery, CIA student photos, Ruiru school photos, student activities, school trips photos, cultural day pictures, sports photos, CBE school gallery, school life photos" />
+  <title>Student Gallery - Santa Ana Calm Waters Academy (CIA) | CBE School Photos in Ruiru</title>
+  <meta name="description" content="Explore Santa Ana Calm Waters Academy student gallery. Photos of school trips, presentations, cultural days, sports, and student activities." />
+  <meta name="keywords" content="Santa Ana gallery, CIA student photos, Ruiru school photos, student activities, school trips photos, cultural day pictures" />
   <meta name="robots" content="index, follow" />
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Student Gallery - Santa Ana Calm Waters Academy (CIA) | Best CBE School Photos" />
-  <meta property="og:description" content="See amazing photos from the best CBE school in Ruiru. Student activities, trips, cultural events, and memorable moments at CIA!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://santanacalmwatersacademy.com/gallery.html" />
-  <meta property="og:image" content="https://santanacalmwatersacademy.com/images/STUDENTS%201.jpg" />
-  <meta property="og:image:alt" content="Santa Ana Calm Waters Academy Students Activities" />
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Student Gallery - Santa Ana Calm Waters Academy (CIA)" />
-  <meta name="twitter:description" content="Amazing photos from the best CBE school in Ruiru showing vibrant student life!" />
-  <meta name="twitter:image" content="https://santanacalmwatersacademy.com/images/STUDENTS%201.jpg" />
-  
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://santanacalmwatersacademy.com/gallery.html" />
-  
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+    #lightbox-caption {
+      color: #fff;
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 18px; right: 22px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+    #lightbox-prev, #lightbox-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      font-size: 44px;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 16px;
+      opacity: 0.7;
+    }
+    #lightbox-prev { left: 8px; }
+    #lightbox-next { right: 8px; }
+    #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
+
+    /* ── Gallery items ── */
+    .gallery-item { cursor: pointer; }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #e0e0e0;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-item-hidden { display: none !important; }
+
+    /* skeleton shimmer while loading */
+    .gallery-item img.loading {
+      filter: blur(2px);
+      opacity: 0.5;
+    }
+
+    /* Load more button */
+    #load-more-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 36px;
+      background: #005792;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #load-more-btn:hover { background: #003f6b; }
+    #load-more-btn:disabled { background: #aaa; cursor: default; }
+
+    /* count badge */
+    .gallery-count {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <header class="navbar">
-  <div class="logo">
-    <img src="images/school logo.png" alt="School Logo" />
-  </div>
-  <button id="menu-toggle" class="hamburger">☰</button>
-  <nav id="nav-links">
-    <ul>
-     <li><a href="index.html">Home❤️</a></li>
-    <li><a href="events.html">School Events😊</a></li>
-    <li><a href="gallery.html">Student's Gallery😎</a></li>
-    <li><a href="facilities.html">Student Welfare💝</a></li>
-    <li><a href="staff.html">Staff🙌</a></li>
-    <li><a href="transport.html">Transport🚌</a></li>
-    <li><a href="contact.html">Contact📲</a></li>
-    </ul>
-  </nav>
-</header>
 
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#x2715;</button>
+    <button id="lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">&#8249;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
+    <button id="lightbox-next" onclick="lightboxNav(1)" aria-label="Next">&#8250;</button>
+  </div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/school logo.png" alt="School Logo" />
+    </div>
+    <button id="menu-toggle" class="hamburger" aria-label="Open menu">
+      <span class="hamburger-dot"></span>
+      <span class="hamburger-dot"></span>
+      <span class="hamburger-dot"></span>
+    </button>
+    <nav id="nav-links">
+      <ul>
+        <li><a href="index.html">Home❤️</a></li>
+        <li><a href="events.html">School Events😊</a></li>
+        <li><a href="gallery.html">Student's Gallery😎</a></li>
+        <li><a href="facilities.html">Student Welfare💝</a></li>
+        <li><a href="staff.html">Staff🙌</a></li>
+        <li><a href="transport.html">Transport🚌</a></li>
+        <li><a href="contact.html">Contact📲</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="gallery-section">
     <div class="gallery-header">
       <h1>Student Gallery - Santa Ana Calm Waters Academy (CIA) Ruiru</h1>
-      <p>Explore some of our students' best moments through pictures of class activities, trips, and more! See why Santa Ana Calm Waters Academy is the best CBE school in Ruiru with vibrant student life and memorable experiences.❤️🙌👌</p>
-      
-      <!-- SEO-Enhanced Description Box -->
-      <div class="gallery-description" style="margin: 25px 0; padding: 20px; background: linear-gradient(135deg, #66003a 0%, #8b0049 100%); color: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(102,0,58,0.3); border-left: 5px solid #ffffff;">
-        <h2 style="color: #ffffff; margin-bottom: 15px; font-size: 1.4rem;">🎨 Life at CIA School Ruiru - A Visual Journey</h2>
-        <p style="margin-bottom: 10px; line-height: 1.6;">Welcome to our comprehensive photo gallery showcasing the dynamic school life at <strong>Santa Ana Calm Waters Academy (CIA)</strong>, the premier CBE school in Ruiru. Our gallery captures the essence of quality education, character development, and memorable experiences that define our institution.</p>
-        <p style="margin-bottom: 0; line-height: 1.6;">From exciting educational trips to vibrant cultural celebrations, from academic presentations to sports achievements - these photos tell the story of holistic education in action. Browse through various categories to see how we nurture future leaders through the Competency Based Education system.</p>
-      </div>
+      <p>Explore our students' best moments — class activities, trips, cultural celebrations and more! ❤️🙌</p>
     </div>
 
     <div class="gallery-filters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="trips">School Trips</button>
-      <button class="filter-btn" data-filter="presentations">Presentations</button>
-      <button class="filter-btn" data-filter="scouts">Scout Activities</button>
-      <button class="filter-btn" data-filter="rewards">Rewards & Recognition</button>
-      <button class="filter-btn" data-filter="students">Student Activities</button>
-      <button class="filter-btn" data-filter="staffphotos">Staff</button>
-      <button class="filter-btn" data-filter="guests">Special Guests</button>
-      <button class="filter-btn" data-filter="prayer">Prayer Day</button>
-      <button class="filter-btn" data-filter="projects">Class Projects</button>
       <button class="filter-btn" data-filter="cultural">Cultural Day</button>
       <button class="filter-btn" data-filter="funday">Fun Day</button>
-      <button class="filter-btn" data-filter="innovation">Innovation</button>
+      <button class="filter-btn" data-filter="presentations">Presentations</button>
+      <button class="filter-btn" data-filter="scouts">Scouts</button>
+      <button class="filter-btn" data-filter="rewards">Rewards</button>
+      <button class="filter-btn" data-filter="students">Students</button>
       <button class="filter-btn" data-filter="staff">Staff</button>
+      <button class="filter-btn" data-filter="guests">Guests</button>
+      <button class="filter-btn" data-filter="prayer">Prayer Day</button>
+      <button class="filter-btn" data-filter="projects">Class Projects</button>
+      <button class="filter-btn" data-filter="innovation">Innovation</button>
+      <button class="filter-btn" data-filter="recent">Recent Events</button>
     </div>
 
+    <div class="gallery-count" id="gallery-count"></div>
     <div class="gallery-grid" id="galleryGrid"></div>
+    <button id="load-more-btn">Load More Photos</button>
   </main>
 
+  <footer>
+    <p>&copy; 2026 Santa Ana Calm Waters Academy. All Rights Reserved.</p>
+    <p>Created with ❤️ by Stuff N'Tuff</p>
+  </footer>
+
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
-    const toggleBtn = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    if (toggleBtn && navLinks) toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+  // ── EXACT IMAGE LIST (no guessing, no failed requests) ──
+  const IMAGES = [
+    // TRIPS
+    ...['TRIP.jpg','TRIP 1.jpg','TRIP 2.jpg','TRIP 3.jpg','TRIP 4.jpg','TRIP 5.jpg','TRIP 6.jpg','TRIP 7.jpg','TRIP 8.jpg','TRIP 9.jpg','TRIP 10.jpg','TRIP 11.jpg','TRIP 12.jpg','TRIP 13.jpg','TRIP 14.jpg','TRIP 15.jpg','TRIP 16.jpg','TRIP 17.jpg','TRIP 18.jpg','TRIP 19.jpg','TRIP 20.jpg','TRIP 21.jpg','TRIP 22.jpg','TRIP 23.jpg','TRIP 24.jpg','TRIP 25.jpg','TRIP 26.jpg','TRIP 27.jpg','TRIP 28.jpg','TRIP 29.jpg','TRIP 30.jpg','TRIP 31.jpg','TRIP 32.jpg','TRIP 33.jpg','TRIP 34.jpg','TRIP 35.jpg','TRIP 36.jpg','TRIP 37.jpg','TRIP 38.jpg','TRIP 39.jpg','TRIP 40.jpg','TRIP 41.jpg','TRIP 42.jpg','TRIP 43.jpg','TRIP 44.jpg','TRIP 45.jpg','TRIP 46.jpg','TRIP 48.jpg','TRIP 49.jpg','TRIP 50.jpg','TRIP 51.jpg','TRIP 52.jpg','TRIP 53.jpg','TRIP 54.jpg','TRIP 55.jpg','TRIP 56.jpg','TRIP 57.jpg','TRIP 58.jpg','TRIP 59.jpg','TRIP 60.jpg','TRIP 61.jpg','TRIP 62.jpg','TRIP 63.jpg','TRIP 64.jpg','TRIP 65.jpg','TRIP 66.jpg','TRIP 67.jpg','TRIP 68.jpg','TRIP 69.jpg','TRIP 70.jpg','TRIP 71.jpg','TRIP 72.jpg','TRIP 73.jpg','TRIP 74.jpg','TRIP 75.jpg','TRIP 76.jpg','TRIP 77.jpg','TRIP 78.jpg','TRIP 79.jpg','TRIP 80.jpg','TRIP 81.jpg','TRIP 82.jpg','TRIP 83.jpg','TRIP 84.jpg','TRIP 85.jpg','TRIP 86.jpg','TRIP 87.jpg','TRIP 88.jpg','TRIP 89.jpg'].map(f=>({f,c:'trips',l:'School Trip'})),
 
-    const galleryGrid = document.getElementById('galleryGrid');
+    // CULTURAL DAY
+    ...['CULTURAL DAY.jpg','CULTURAL DAY 1.jpg','CULTURAL DAY 2 (1).jpg','CULTURAL DAY 2 (2).jpg','CULTURAL DAY 2 (3).jpg','CULTURAL DAY 2 (4).jpg','CULTURAL DAY 2 (5).jpg','CULTURAL DAY 2 (6).jpg','CULTURAL DAY 2 (7).jpg','CULTURAL DAY 2 (8).jpg','CULTURAL DAY 2 (9).jpg'].map(f=>({f,c:'cultural',l:'Cultural Day'})),
+    ...[...Array(63)].map((_,i)=>({f:`CULTURAL DAY 3 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
+    ...[...Array(9)].map((_,i)=>({f:`CULTURAL DAY 4 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
+    ...[...Array(72)].map((_,i)=>({f:`CULTURAL DAY 5 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
+    ...[...Array(5)].map((_,i)=>({f:`CULTURAL DAY 6 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
 
-    // Build filename lists programmatically
-    const categories = {
-      trips: (() => {
-        const arr = ['TRIP.jpg'];
-        for (let i = 1; i <= 89; i++) arr.push(`TRIP ${i}.jpg`);
-        return arr;
-      })(),
-      presentations: (() => {
-        const arr = ['PRESENTATIONS.jpg'];
-        for (let i = 1; i <= 20; i++) arr.push(`PRESENTATIONS ${i}.jpg`);
-        return arr;
-      })(),
-      scouts: ['SCOUTS.jpg','SCOUT 1.jpg','SCOUTS 2.jpg','SCOUTS 4.jpg','SCOUTS 5.jpg','SCOUTS 6.jpg','SCOUTS 7.jpg','SCOUTS 8.jpg','SCOUTS 9.jpg','SCOUTS 10.jpg','SCOUTS 11.jpg','SCOUTS 12.jpg'],
-      rewards: (() => {
-        const arr = ['REWARDS.jpg'];
-        for (let i = 1; i <= 8; i++) arr.push(`REWARDS ${i}.jpg`);
-        return arr;
-      })(),
-      students: (() => {
-        const arr = ['STUDENTS.jpg'];
-        for (let i = 1; i <= 7; i++) arr.push(`STUDENTS ${i}.jpg`);
-        return arr;
-      })(),
-      staffphotos: (() => {
-        const arr = [];
-        // Base file
-        arr.push('TEACHERS 1.JPG');
-        // TEACHERS 3 has 30 photos numbered (1) through (30)
-        for (let i = 1; i <= 30; i++) {
-          arr.push(`TEACHERS 3 (${i}).JPG`);
-        }
-        return arr;
-      })(),
-      guests: (() => {
-        const arr = ['GUESTS.jpg'];
-        for (let i = 1; i <= 10; i++) {
-          arr.push(`GUESTS ${i}.jpg`);
-          arr.push(`GUESTS ${i} (${i}).jpg`);
-        }
-        return arr;
-      })(),
-      prayer: (() => {
-        const arr = [];
-        // Prayer day files: PRAYER DAY (1).JPG, PRAYER DAY (2).JPG, PRAYER DAY 1 (1).JPG, PRAYER DAY 1 (2).JPG
-        arr.push('PRAYER DAY (1).JPG');
-        arr.push('PRAYER DAY (2).JPG');
-        arr.push('PRAYER DAY 1 (1).JPG');
-        arr.push('PRAYER DAY 1 (2).JPG');
-        return arr;
-      })(),
-      projects: (() => {
-        const arr = [];
-        arr.push('CLASS PROJECTS.jpg');
-        arr.push('CLASS PROJECTS 1.jpg');
-        arr.push('CLASS PROJECTS 2.jpg');
-        return arr;
-      })(),
-      cultural: (() => {
-        const arr = [];
-        // CULTURAL DAY 1.jpg
-        arr.push('CULTURAL DAY 1.jpg');
-        // CULTURAL DAY 2 has files (1) through at least (9), check up to 50
-        // Skip (1).png as it's an AI-generated image
-        for (let i = 1; i <= 50; i++) {
-          if (i === 1) {
-            // Skip the .png version of (1) - it's AI generated
-            arr.push(`CULTURAL DAY 2 (${i}).jpg`);
-          } else {
-            arr.push(`CULTURAL DAY 2 (${i}).jpg`);
-            arr.push(`CULTURAL DAY 2 (${i}).png`);
-          }
-        }
-        // CULTURAL DAY 3 has many files, check up to 100
-        for (let i = 1; i <= 100; i++) {
-          arr.push(`CULTURAL DAY 3 (${i}).jpg`);
-          arr.push(`CULTURAL DAY 3 (${i}).png`);
-        }
-        // Check for more CULTURAL DAY patterns
-        for (let base = 4; base <= 10; base++) {
-          for (let i = 1; i <= 50; i++) {
-            arr.push(`CULTURAL DAY ${base} (${i}).jpg`);
-            arr.push(`CULTURAL DAY ${base} (${i}).png`);
-          }
-        }
-        return arr;
-      })(),
-      funday: (() => {
-        const arr = [];
-        // FUN DAY (1) through (5)
-        for (let i = 1; i <= 5; i++) {
-          arr.push(`FUN DAY (${i}).jpg`);
-        }
-        // FUN DAY 1 has files (1) through at least (9)
-        for (let i = 1; i <= 15; i++) {
-          arr.push(`FUN DAY 1 (${i}).jpg`);
-        }
-        // FUN DAY 2 has files (1) through at least (14)
-        for (let i = 1; i <= 20; i++) {
-          arr.push(`FUN DAY 2 (${i}).jpg`);
-        }
-        return arr;
-      })(),
-      innovation: (() => {
-        const arr = [];
-        // Note: Innovation files have double space before parenthesis
-        arr.push('INNOVATION  (1).jpg');
-        arr.push('INNOVATION  (2).jpg');
-        arr.push('INNOVATION  (3).jpg');
-        return arr;
-      })(),
-      staff: (() => {
-        const arr = [];
-        for (let i = 1; i <= 13; i++) arr.push(`STAFF ${i}.jpg`);
-        return arr;
-      })()
-    };
+    // FUN DAY
+    ...[...Array(5)].map((_,i)=>({f:`FUN DAY (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
+    ...[...Array(9)].map((_,i)=>({f:`FUN DAY 1 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
+    ...[...Array(14)].map((_,i)=>({f:`FUN DAY 2 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
 
-    function tryLoadImage(src) {
-      return new Promise(resolve => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = src;
-      });
-    }
+    // PRESENTATIONS
+    ...['PRESENTATIONS.jpg',...[...Array(20)].map((_,i)=>`PRESENTATIONS ${i+1}.jpg`)].map(f=>({f,c:'presentations',l:'Student Presentation'})),
 
-    async function addImages() {
-      // iterate categories in desired order
-      const order = ['trips','presentations','scouts','rewards','students','staffphotos','guests','prayer','projects','cultural','funday','innovation','staff'];
-      for (const cat of order) {
-        for (const name of categories[cat]) {
-          // Skip AI-generated images and school logo
-          if (name.includes('Gemini_Generated_Image')) continue;
-          if (name.includes('ChatGPT Image')) continue;
-          if (name.includes('school logo')) continue;
-          
-          const path = `images/${name}`;
-          // try loading image; skip if not present or fails
-          const ok = await tryLoadImage(path);
-          if (!ok) continue;
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          item.dataset.category = cat;
-          const baseTitle = name.replace(/\.[^.]+$/, '');
-          let description;
-          switch(cat) {
-            case 'trips':
-              description = 'School Field Trip Memory';
-              break;
-            case 'presentations':
-              description = 'Student Presentation';
-              break;
-            case 'scouts':
-              description = 'Scout Activity';
-              break;
-            case 'rewards':
-              description = 'Awarding Ceremony🎁🎁';
-              break;
-            case 'students':
-              description = 'Student Activity';
-              break;
-            case 'staffphotos':
-              description = 'Our Dedicated Staff';
-              break;
-            case 'guests':
-              description = 'Special Guests Visit';
-              break;
-              break;
-            case 'prayer':
-              description = 'Prayer Day Celebration';
-              break;
-            case 'projects':
-              description = 'Class Project Showcase';
-              break;
-            case 'cultural':
-              description = 'Cultural Day Festivities';
-              break;
-            case 'funday':
-              description = 'Fun Day Activities';
-              break;
-            case 'innovation':
-              description = 'Innovation & Creativity';
-              break;
-            case 'staff':
-              description = 'Our Amazing Staff';
-              break;
-          }
-          item.innerHTML = `<img src="${path}" alt="${description}" title="${description}" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: high-quality;"><div class="gallery-item-overlay"><h3>${description}</h3></div>`;
-          galleryGrid.appendChild(item);
+    // SCOUTS
+    ...['SCOUTS.jpg','SCOUT 1.jpg','SCOUTS 2.jpg','SCOUTS 4.jpg','SCOUTS 5.jpg','SCOUTS 6.jpg','SCOUTS 7.jpg','SCOUTS 8.jpg','SCOUTS 9.JPG','SCOUTS 10.JPG','SCOUTS 11.JPG','SCOUTS 12.JPG'].map(f=>({f,c:'scouts',l:'Scout Activity'})),
+
+    // REWARDS
+    ...['REWARDS.jpg','REWARDS 1.jpg','REWARDS 2.jpg','REWARDS 3.jpg','REWARDS 4.jpg','REWARDS 5.jpg','REWARDS 6.jpg','REWARDS 7.jpg','REWARDS 8.jpg'].map(f=>({f,c:'rewards',l:'Rewards & Recognition 🎁'})),
+
+    // STUDENTS
+    ...['STUDENTS.jpg','STUDENTS 1.jpg','STUDENTS 2.jpg','STUDENTS 3.jpg','STUDENTS 4.jpg','STUDENTS 5.jpg','STUDENTS 6.jpg','STUDENTS 7.jpg'].map(f=>({f,c:'students',l:'Student Activities'})),
+
+    // STAFF
+    ...['Staff.jpg','STAFF 1.jpg','STAFF 2.jpg','STAFF 3.jpg','STAFF 4.jpg','STAFF 5.jpg','STAFF 6.jpg','STAFF 7.jpg','STAFF 8.jpg','STAFF 9.jpg','STAFF 10.jpg','STAFF 11.jpg','STAFF 12.jpg','STAFF 13 (1).jpg','STAFF 13 (2).jpg','STAFF 13 (3).jpg','STAFF 13 (4).jpg','STAFF 13 (5).jpg','TEACHERS.JPG','TEACHERS 1.JPG','TEACHERS 5.JPG',...[...Array(27)].map((_,i)=>`TEACHERS 3 (${i+1}).JPG`),...[...Array(4)].map((_,i)=>`TEACHERS 4 (${i+1}).JPG`)].map(f=>({f,c:'staff',l:'Our Staff'})),
+
+    // GUESTS
+    ...['GUESTS.jpg','GUESTS 1.jpg'].map(f=>({f,c:'guests',l:'Special Guests'})),
+
+    // PRAYER DAY
+    ...['PRAYER DAY (1).JPG','PRAYER DAY (2).JPG','PRAYER DAY 1 (1).JPG','PRAYER DAY 1 (2).JPG'].map(f=>({f,c:'prayer',l:'Prayer Day'})),
+
+    // CLASS PROJECTS
+    ...['CLASS PROJECTS.jpg','CLASS PROJECTS 1.jpg','CLASS PROJECTS 2.jpg'].map(f=>({f,c:'projects',l:'Class Projects'})),
+
+    // INNOVATION
+    ...['INNOVATION  (1).jpg','INNOVATION  (2).jpg','INNOVATION  (3).jpg'].map(f=>({f,c:'innovation',l:'Innovation & Creativity'})),
+
+    // RECENT EVENTS (IMG-* files by date)
+    ...['IMG-20241027-WA0221.jpg','IMG-20241027-WA0236.jpg','IMG-20241027-WA0237.jpg','IMG-20241028-WA0021.jpg','IMG-20241028-WA0028.jpg','IMG-20241028-WA0033.jpg','IMG-20241028-WA0034.jpg','IMG-20241028-WA0044.jpg','IMG-20241028-WA0045.jpg','IMG-20241028-WA0050.jpg','IMG-20241110-WA0041.jpg','IMG-20241110-WA0051.jpg','IMG-20241110-WA0075.jpg','IMG-20241110-WA0077.jpg','IMG-20241110-WA0083.jpg','IMG-20241110-WA0086.jpg','IMG-20250316-WA0001.jpg','IMG-20250316-WA0003.jpg','IMG-20250316-WA0007.jpg','IMG-20250316-WA0009.jpg','IMG-20250316-WA0011.jpg','IMG-20250316-WA0012.jpg','IMG-20250316-WA0014.jpg','IMG-20250316-WA0016.jpg','IMG-20250316-WA0018.jpg','IMG-20250316-WA0020.jpg','IMG-20250316-WA0021.jpg','IMG-20250316-WA0022.jpg','IMG-20250316-WA0027.jpg','IMG-20250316-WA0028.jpg','IMG-20250316-WA0029.jpg','IMG-20250316-WA0032.jpg','IMG-20250316-WA0033.jpg','IMG-20250316-WA0037.jpg','IMG-20250316-WA0038.jpg','IMG-20250316-WA0039.jpg','IMG-20250316-WA0040.jpg','IMG-20250316-WA0041.jpg','IMG-20250316-WA0042.jpg','IMG-20250316-WA0043.jpg','IMG-20250316-WA0044.jpg','IMG-20250502-WA0018.jpg','IMG-20250529-WA0006.jpg','IMG-20250529-WA0022.jpg','IMG-20250529-WA0046.jpg','IMG-20250529-WA0051.jpg','IMG-20250529-WA0055.jpg','IMG-20250529-WA0056.jpg','IMG-20250530-WA0008.jpg','IMG-20250530-WA0010.jpg','IMG-20250530-WA0012.jpg','IMG-20250530-WA0057.jpg','IMG-20250530-WA0065.jpg','IMG-20250530-WA0066.jpg','IMG-20250530-WA0070.jpg','IMG-20250530-WA0071.jpg','IMG-20250530-WA0080.jpg','IMG-20250530-WA0082.jpg','IMG-20250530-WA0083.jpg','IMG-20250530-WA0085.jpg','IMG-20250530-WA0135.jpg','IMG-20250530-WA0154.jpg','IMG-20250530-WA0163.jpg','IMG-20250530-WA0337.jpg','IMG-20250530-WA0340.jpg','IMG-20250530-WA0344.jpg','IMG-20250603-WA0133.jpg','IMG-20250603-WA0226.jpg','IMG-20250603-WA0230.jpg','IMG-20250603-WA0238.jpg','IMG-20250603-WA0246.jpg','IMG-20250625-WA0052.jpg','IMG-20250625-WA0059.jpg','IMG-20250625-WA0060.jpg','IMG-20250625-WA0061.jpg','IMG-20250625-WA0062.jpg','IMG-20250625-WA0066.jpg','IMG-20250625-WA0067.jpg','IMG-20250625-WA0068.jpg','IMG-20250625-WA0069.jpg','IMG-20250625-WA0070.jpg','IMG-20250625-WA0071.jpg','IMG-20250625-WA0072.jpg','IMG-20250625-WA0073.jpg','IMG-20250625-WA0074.jpg','IMG-20250625-WA0075.jpg','IMG-20250625-WA0076.jpg','IMG-20250625-WA0077.jpg','IMG-20250625-WA0078.jpg','IMG-20250625-WA0079.jpg','IMG-20250625-WA0080.jpg','IMG-20250625-WA0081.jpg','IMG-20250625-WA0146.jpg','IMG-20250625-WA0147.jpg','IMG-20250625-WA0148.jpg','IMG-20250625-WA0149.jpg','IMG-20250625-WA0150.jpg','IMG-20250625-WA0151.jpg','IMG-20250625-WA0153.jpg','IMG-20250625-WA0180.jpg','IMG-20250625-WA0204.jpg','IMG-20250625-WA0211.jpg','IMG-20250625-WA0216.jpg','IMG-20250625-WA0224.jpg','IMG-20250702-WA0012.jpg','IMG-20250702-WA0020.jpg','IMG-20250708-WA0056.jpg','IMG-20250708-WA0393.jpg','IMG-20250708-WA0396.jpg','IMG-20250708-WA0397.jpg','IMG-20250708-WA0398.jpg','IMG-20250716-WA0189.jpg','IMG-20250716-WA0190.jpg','IMG-20250716-WA0195.jpg','IMG-20250716-WA0199.jpg','IMG-20250716-WA0207.jpg','IMG-20250716-WA0288.jpg','IMG-20250716-WA0346.jpg','IMG-20250716-WA0384.jpg','IMG-20250716-WA0396.jpg','IMG-20250716-WA0400.jpg','IMG-20250716-WA0436.jpg','IMG-20250716-WA0442.jpg','IMG-20250716-WA0452.jpg','IMG-20250716-WA0453.jpg','IMG-20250716-WA0454.jpg','IMG-20250716-WA0455.jpg','IMG-20250716-WA0459.jpg','IMG-20250716-WA0460.jpg','IMG-20250716-WA0461.jpg','IMG-20250716-WA0462.jpg','IMG-20250716-WA0463.jpg','IMG-20250716-WA0464.jpg','IMG-20250716-WA0465.jpg','IMG-20250716-WA0466.jpg','IMG-20250716-WA0467.jpg','IMG-20250716-WA0469.jpg','IMG-20250716-WA0470.jpg','IMG-20250716-WA0471.jpg','IMG-20250716-WA0472.jpg','IMG-20250716-WA0473.jpg','IMG-20250716-WA0474.jpg','IMG-20250716-WA0475.jpg','IMG-20250716-WA0476.jpg','IMG-20250716-WA0477.jpg','IMG-20250716-WA0478.jpg','IMG-20250716-WA0479.jpg','IMG-20250716-WA0480.jpg','IMG-20250716-WA0481.jpg','IMG-20250716-WA0635.jpg','IMG-20250716-WA0637.jpg','IMG-20250716-WA0650.jpg','IMG-20250716-WA0652.jpg','IMG-20250716-WA0663.jpg','IMG-20250716-WA0664.jpg','IMG-20250716-WA0665.jpg','IMG-20250716-WA0666.jpg','IMG-20250717-WA0004.jpg','IMG-20250717-WA0005.jpg','IMG-20250717-WA0006.jpg','IMG-20250717-WA0007.jpg','IMG-20250717-WA0008.jpg','IMG-20250717-WA0009.jpg','IMG-20250717-WA0010.jpg','IMG-20250717-WA0011.jpg','IMG-20250717-WA0042.jpg','IMG-20250717-WA0056.jpg','IMG-20250717-WA0057.jpg','IMG-20250717-WA0058.jpg','IMG-20250717-WA0059.jpg','IMG-20250717-WA0060.jpg','IMG-20250717-WA0061.jpg','IMG-20250717-WA0063.jpg','IMG-20250717-WA0068.jpg','IMG-20250717-WA0069.jpg','IMG-20250717-WA0073.jpg','IMG-20250717-WA0074.jpg','IMG-20250717-WA0080.jpg','IMG-20250717-WA0088.jpg','IMG-20250717-WA0089.jpg','IMG-20250717-WA0090.jpg','IMG-20250717-WA0091.jpg','IMG-20250717-WA0092.jpg','IMG-20250717-WA0093.jpg','IMG-20250717-WA0094.jpg','IMG-20250717-WA0095.jpg','IMG-20250717-WA0096.jpg','IMG-20250717-WA0103.jpg','IMG-20250717-WA0104.jpg','IMG-20250717-WA0105.jpg','IMG-20250717-WA0106.jpg','IMG-20250717-WA0107.jpg','IMG-20250717-WA0108.jpg','IMG-20250717-WA0109.jpg','IMG-20250717-WA0110.jpg','IMG-20250717-WA0111.jpg','IMG-20250717-WA0112.jpg','IMG-20250717-WA0113.jpg','IMG-20250717-WA0114.jpg','IMG-20250717-WA0116.jpg','IMG-20250717-WA0117.jpg','IMG-20250717-WA0119.jpg','IMG-20250717-WA0121.jpg','IMG-20250717-WA0279.jpg','IMG-20250723-WA0025.jpg','IMG-20250723-WA0026.jpg','IMG-20250723-WA0030.jpg','IMG-20250723-WA0032.jpg','IMG-20250723-WA0037.jpg','IMG-20250723-WA0041.jpg','IMG-20250723-WA0042.jpg','IMG-20250723-WA0044.jpg','IMG-20250723-WA0046.jpg','IMG-20250723-WA0051.jpg','IMG-20250723-WA0052.jpg','IMG-20250723-WA0094.jpg','IMG-20250723-WA0095.jpg','IMG-20250723-WA0096.jpg','IMG-20250723-WA0097.jpg','IMG-20250723-WA0098.jpg','IMG-20250723-WA0101.jpg','IMG-20250723-WA0103.jpg','IMG-20250723-WA0104.jpg','IMG-20250723-WA0105.jpg','IMG-20250723-WA0106.jpg','IMG-20250723-WA0107.jpg','IMG-20250723-WA0136.jpg','IMG-20250723-WA0137.jpg','IMG-20250723-WA0138.jpg','IMG-20250723-WA0139.jpg','IMG-20250723-WA0140.jpg','IMG-20250723-WA0141.jpg','IMG-20250723-WA0142.jpg','IMG-20250723-WA0143.jpg','IMG-20250723-WA0144.jpg','IMG-20250729-WA0001.jpg','IMG-20250729-WA0002.jpg','IMG-20250729-WA0003.jpg','IMG-20250729-WA0004.jpg','IMG-20250729-WA0005.jpg','IMG-20250729-WA0006.jpg','IMG-20250729-WA0007.jpg','IMG-20250729-WA0008.jpg','IMG-20250729-WA0009.jpg','IMG-20250729-WA0067.jpg','IMG-20250729-WA0068.jpg','IMG-20250729-WA0069.jpg','IMG-20250729-WA0070.jpg','IMG-20250729-WA0071.jpg','IMG-20250729-WA0072.jpg','IMG-20250729-WA0073.jpg','IMG-20250729-WA0074.jpg','IMG-20250729-WA0075.jpg','IMG-20250729-WA0076.jpg','IMG-20250729-WA0077.jpg','IMG-20250729-WA0078.jpg','IMG-20250729-WA0079.jpg','IMG-20250729-WA0080.jpg','IMG-20250729-WA0081.jpg','IMG-20250729-WA0082.jpg','IMG-20250729-WA0083.jpg','IMG-20250729-WA0084.jpg','IMG-20250729-WA0085.jpg','IMG-20250729-WA0086.jpg','IMG-20250729-WA0087.jpg','IMG-20250729-WA0088.jpg','IMG-20250729-WA0089.jpg','IMG-20250729-WA0090.jpg','IMG-20250729-WA0091.jpg','IMG-20250729-WA0092.jpg','IMG-20250729-WA0093.jpg','IMG-20250729-WA0094.jpg','IMG-20250729-WA0095.jpg','IMG-20250729-WA0096.jpg','IMG-20250729-WA0097.jpg','IMG-20250729-WA0098.jpg','IMG-20250729-WA0099.jpg','IMG-20250729-WA0100.jpg','IMG-20250729-WA0101.jpg','IMG-20250729-WA0102.jpg','IMG-20250729-WA0104.jpg','IMG-20250729-WA0105.jpg','IMG-20250729-WA0106.jpg','IMG-20250729-WA0107.jpg','IMG-20250729-WA0108.jpg','IMG-20250729-WA0109.jpg','IMG-20250729-WA0110.jpg','IMG-20250729-WA0112.jpg','IMG-20250729-WA0157.jpg','IMG-20250729-WA0159.jpg','IMG-20250729-WA0166.jpg','IMG-20250729-WA0170.jpg','IMG-20250729-WA0172.jpg','IMG-20250729-WA0184.jpg','IMG-20250729-WA0185.jpg','IMG-20250729-WA0186.jpg','IMG-20250729-WA0187.jpg','IMG-20250729-WA0188.jpg','IMG-20250729-WA0190.jpg','IMG-20250729-WA0191.jpg','IMG-20250729-WA0192.jpg','IMG-20250729-WA0193.jpg','IMG-20250729-WA0194.jpg','IMG-20250729-WA0196.jpg','IMG-20250729-WA0197.jpg','IMG-20250729-WA0198.jpg','IMG-20250729-WA0222.jpg','IMG-20250729-WA0223.jpg','IMG-20250729-WA0224.jpg','IMG-20250729-WA0225.jpg','IMG-20250729-WA0226.jpg','IMG-20250729-WA0227.jpg','IMG-20250729-WA0228.jpg','IMG-20250729-WA0229.jpg','IMG-20250729-WA0230.jpg','IMG-20250729-WA0231.jpg','IMG-20250729-WA0232.jpg','IMG-20250729-WA0233.jpg','IMG-20250803-WA0012.jpg','IMG-20250803-WA0013.jpg','IMG-20250803-WA0014.jpg','IMG-20250803-WA0015.jpg','IMG-20250803-WA0016.jpg','IMG-20250803-WA0017.jpg','IMG-20250803-WA0018.jpg','IMG-20250803-WA0019.jpg','IMG-20250803-WA0020.jpg','IMG-20250803-WA0022.jpg','IMG-20250803-WA0023.jpg','IMG-20250803-WA0024.jpg','IMG-20250803-WA0026.jpg','IMG-20250803-WA0027.jpg','IMG-20250803-WA0028.jpg','IMG-20250803-WA0029.jpg','IMG-20250803-WA0030.jpg','IMG-20250803-WA0031.jpg','IMG-20250803-WA0032.jpg','IMG-20250803-WA0033.jpg','IMG-20250803-WA0034.jpg','IMG-20250803-WA0035.jpg','IMG-20250803-WA0045.jpg','IMG-20250803-WA0046.jpg','IMG-20250803-WA0047.jpg','IMG-20250803-WA0048.jpg','IMG-20250803-WA0049.jpg','IMG-20250803-WA0050.jpg','IMG-20250803-WA0051.jpg','IMG-20250803-WA0052.jpg','IMG-20250803-WA0053.jpg','IMG-20250803-WA0054.jpg','IMG-20250803-WA0055.jpg','IMG-20250803-WA0056.jpg','IMG-20250803-WA0057.jpg','IMG-20250803-WA0058.jpg','IMG-20250803-WA0059.jpg','IMG-20250803-WA0060.jpg','IMG-20250803-WA0061.jpg','IMG-20250803-WA0123.jpg','IMG-20250803-WA0174.jpg','IMG-20250803-WA0175.jpg','IMG-20250803-WA0176.jpg','IMG-20250803-WA0177.jpg','IMG-20250803-WA0178.jpg','IMG-20250803-WA0179.jpg','IMG-20250803-WA0180.jpg','IMG-20250803-WA0181.jpg','IMG-20250803-WA0182.jpg','IMG-20250803-WA0183.jpg','IMG-20250803-WA0184.jpg','IMG-20250803-WA0185.jpg','IMG-20250803-WA0186.jpg','IMG-20250803-WA0187.jpg','IMG-20250803-WA0188.jpg','IMG-20250803-WA0189.jpg','IMG-20250803-WA0190.jpg','IMG-20250803-WA0191.jpg','IMG-20250803-WA0192.jpg','IMG-20250803-WA0193.jpg','IMG-20251029-WA0174.jpg','WhatsApp Image 2025-11-10 at 12.25.33_966b7f50.jpg','WhatsApp Image 2025-11-10 at 12.25.34_4b110325.jpg','WhatsApp Image 2025-11-10 at 12.25.34_62ec5e90.jpg','WhatsApp Image 2025-11-10 at 12.25.34_00108ba9.jpg','WhatsApp Image 2025-11-10 at 12.25.35_88381e90.jpg','WhatsApp Image 2025-11-10 at 12.25.36_41c27cd1.jpg'].map(f=>({f,c:'recent',l:'Recent Events'}))
+  ];
+
+  // ── State ──
+  const BATCH = 24;
+  let currentFilter = 'all';
+  let filtered = [];
+  let rendered = 0;
+  let lightboxIndex = 0;
+
+  // ── IntersectionObserver for lazy loading ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          img.classList.remove('loading');
+          observer.unobserve(img);
         }
       }
-      initFiltering();
-    }
+    });
+  }, { rootMargin: '200px 0px' });
 
-    function initFiltering() {
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          filterButtons.forEach(b => b.classList.remove('active'));
-          button.classList.add('active');
-          const filter = button.getAttribute('data-filter');
-          const galleryItems = document.querySelectorAll('.gallery-item');
-          galleryItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-              item.classList.remove('gallery-item-hidden');
-            } else {
-              item.classList.add('gallery-item-hidden');
-            }
-          });
-        });
+  function getFiltered() {
+    return currentFilter === 'all' ? IMAGES : IMAGES.filter(i => i.c === currentFilter);
+  }
+
+  function renderBatch() {
+    const grid = document.getElementById('galleryGrid');
+    const batch = filtered.slice(rendered, rendered + BATCH);
+    const frag = document.createDocumentFragment();
+
+    batch.forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.dataset.index = rendered + idx;
+
+      const img = document.createElement('img');
+      img.dataset.src = `images/${item.f}`;
+      img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="220"%3E%3Crect width="300" height="220" fill="%23e8e8e8"/%3E%3C/svg%3E';
+      img.alt = item.l;
+      img.className = 'loading';
+      img.loading = 'lazy';
+
+      const overlay = document.createElement('div');
+      overlay.className = 'gallery-item-overlay';
+      overlay.innerHTML = `<h3>${item.l}</h3>`;
+
+      div.appendChild(img);
+      div.appendChild(overlay);
+      div.addEventListener('click', () => openLightbox(rendered + idx));
+      frag.appendChild(div);
+      observer.observe(img);
+    });
+
+    grid.appendChild(frag);
+    rendered += batch.length;
+    updateCount();
+    updateBtn();
+  }
+
+  function updateCount() {
+    document.getElementById('gallery-count').textContent =
+      `Showing ${Math.min(rendered, filtered.length)} of ${filtered.length} photos`;
+  }
+
+  function updateBtn() {
+    const btn = document.getElementById('load-more-btn');
+    if (rendered >= filtered.length) {
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = 'block';
+      btn.disabled = false;
+    }
+  }
+
+  function applyFilter(cat) {
+    currentFilter = cat;
+    filtered = getFiltered();
+    rendered = 0;
+    document.getElementById('galleryGrid').innerHTML = '';
+    renderBatch();
+  }
+
+  // ── Lightbox ──
+  function openLightbox(index) {
+    lightboxIndex = index;
+    showLightboxImg();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showLightboxImg() {
+    const item = filtered[lightboxIndex];
+    document.getElementById('lightbox-img').src = `images/${item.f}`;
+    document.getElementById('lightbox-caption').textContent = `${item.l} (${lightboxIndex + 1} / ${filtered.length})`;
+  }
+
+  function lightboxNav(dir) {
+    lightboxIndex = (lightboxIndex + dir + filtered.length) % filtered.length;
+    showLightboxImg();
+  }
+
+  // keyboard nav
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') lightboxNav(1);
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+  });
+
+  // click outside image closes
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  });
+
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', () => {
+    // menu toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    // filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.dataset.filter);
       });
-    }
+    });
 
-    // Start populating the gallery
-    if (galleryGrid) addImages();
+    // load more
+    document.getElementById('load-more-btn').addEventListener('click', renderBatch);
+
+    // initial load
+    filtered = getFiltered();
+    renderBatch();
   });
   </script>
 
