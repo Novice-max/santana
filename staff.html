@@ -3,176 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- SEO Meta Tags -->
   <title>Our Staff - Santa Ana Calm Waters Academy (CIA) | Qualified CBE Teachers in Ruiru</title>
-  <meta name="description" content="Meet the dedicated teaching staff at Santa Ana Calm Waters Academy (CIA) in Ruiru. Experienced teachers committed to CBE curriculum and character development. Led by Director Mr. Anthony Maina." />
-  <meta name="keywords" content="Santa Ana staff, CIA teachers, Ruiru school teachers, qualified teachers, CBE teachers, school director, experienced educators" />
+  <meta name="description" content="Meet the dedicated teaching staff at Santa Ana Calm Waters Academy (CIA) in Ruiru. Experienced teachers committed to CBE curriculum and character development." />
   <meta name="robots" content="index, follow" />
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Our Staff - Santa Ana Calm Waters Academy (CIA)" />
-  <meta property="og:description" content="Meet our qualified teaching staff at the best CBE school in Ruiru. Dedicated educators serving God and humanity." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://santanacalmwatersacademy.com/staff.html" />
-  
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://santanacalmwatersacademy.com/staff.html" />
-  
   <link rel="stylesheet" href="styles.css"/>
-  <!-- Font Awesome for icons -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- AOS (Animate On Scroll) -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .navbar{background:#1a1a6e;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:relative;z-index:200}
+    .navbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-circle{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);overflow:hidden;flex-shrink:0}
+    .logo-circle img{width:100%;height:100%;object-fit:cover}
+    .logo-name{font-size:13px;font-weight:500;color:#fff;line-height:1.3;display:block}
+    .logo-tagline{font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:0.4px;display:block}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+    .nav-links li a{display:flex;align-items:center;gap:6px;padding:7px 12px;text-decoration:none;color:rgba(255,255,255,0.8);font-size:13px;border-radius:8px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+    .nav-links li a:hover{background:rgba(255,255,255,0.12);color:#fff}
+    .nav-links li a.active{background:rgba(255,255,255,0.18);color:#fff;font-weight:500}
+    .nav-links li a svg{width:14px;height:14px;flex-shrink:0}
+    .nav-divider-item{width:1px;height:20px;background:rgba(255,255,255,0.2);margin:0 4px;list-style:none}
+    .nav-enroll{background:#fff!important;color:#1a1a6e!important;font-weight:500!important;margin-left:4px}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+    @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.navbar.open .nav-links{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:68px;left:0;right:0;background:#1a1a6e;padding:12px 1.5rem 16px;gap:2px;z-index:300}.navbar.open .nav-links li{width:100%}.navbar.open .nav-links li a{width:100%}.nav-divider-item{display:none}.nav-enroll{margin-left:0!important}}
+  </style>
 </head>
 <body>
-  <!-- Horizontal Floating Social Bar -->
   <div class="social-bar">
-    <a href="https://wa.me/254742935110" target="_blank" class="whatsapp">
-      <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-    </a>
-    <a href="https://www.facebook.com/santanacalmwatersacademy/" target="_blank" class="facebook">
-      <i class="fab fa-facebook-f"></i><span>Facebook</span>
-    </a>
+    <a href="https://www.instagram.com/santaanacalmwatersacademy/tagged/" target="_blank" class="instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+    <a href="https://wa.me/254742935110" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+    <a href="https://www.facebook.com/santanacalmwatersacademy/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
   </div>
 
-  <!-- Header & Navigation -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="images\school logo.png" alt="School Logo" />
-    </div>
-    <button id="menu-toggle" class="hamburger">☰</button>
-    <nav id="nav-links">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-    <li><a href="events.html">School Events</a></li>
-    <li><a href="gallery.html">Student's Gallery</a></li>
-    <li><a href="facilities.html">Student Welfare</a></li>
-    <li><a href="staff.html">Staff</a></li>
-    <li><a href="transport.html">Transport</a></li>
-    <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="navbar" id="mainNav">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-circle"><img src="images/new logo.jpeg" alt="School Logo"/></div>
+      <div><span class="logo-name">Santa Ana Calm Waters Academy</span><span class="logo-tagline">Serving God &amp; Humanity</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6.5L8 2l6 4.5V14H10v-3H6v3H2z"/></svg>Home</a></li>
+      <li><a href="events.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>Events</a></li>
+      <li><a href="gallery.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><circle cx="5.5" cy="7" r="1.5"/><path d="M1 11l4-3 3 2.5 2-1.5 5 3.5"/></svg>Gallery</a></li>
+      <li><a href="welfare.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a3 3 0 100 6 3 3 0 000-6z"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>Welfare</a></li>
+      <li><a href="staff.html" class="active"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5.5" cy="5" r="2.5"/><circle cx="11" cy="5" r="2.5"/><path d="M1 14c0-2.5 2-4.5 4.5-4.5S10 11.5 10 14"/><path d="M10.5 9.8C11 9.6 11.5 9.5 12 9.5c2 0 3.5 1.5 3.5 3.5"/></svg>Staff</a></li>
+      <li><a href="transport.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="14" height="7" rx="1.5"/><path d="M1 8h14"/><circle cx="4.5" cy="12" r="1.5"/><circle cx="11.5" cy="12" r="1.5"/><path d="M3 5V3.5A1.5 1.5 0 014.5 2h7A1.5 1.5 0 0113 3.5V5"/></svg>Transport</a></li>
+      <li><a href="contact.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H2a1 1 0 00-1 1v7a1 1 0 001 1h2v3l3-3h7a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>Contact</a></li>
+      <li class="nav-divider-item"></li>
+      <li><a href="enroll.html" class="nav-enroll">Enroll Now</a></li>
+    </ul>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
-  <!-- Staff Section -->
   <section class="staff-section section">
     <h1 data-aos="fade-down">Our Dedicated Staff</h1>
-    
-    <div class="staff-intro" data-aos="fade-up">
-      <p>At Santa Ana Calm Waters Academy, our staff members are the cornerstone of our educational excellence. Each member brings unique expertise and dedication to nurturing our students' growth and development.</p>
-    </div>
-
+    <div class="staff-intro" data-aos="fade-up"><p>At Santa Ana Calm Waters Academy, our staff members are the cornerstone of our educational excellence. Each member brings unique expertise and dedication to nurturing our students' growth and development.</p></div>
     <div class="staff-categories">
-      <!-- Administration Team -->
       <div class="staff-category" data-aos="fade-right">
         <h2><i class="fas fa-users-cog"></i> Leadership</h2>
         <div class="staff-grid">
-          <div class="staff-card">
-            <img src="images/Director.jpeg" alt="School Director" class="staff-photo">
-            <h3>Mr. Anthony Maina</h3>
-            <p class="role">School Director</p>
-            <p>Leading our institution with vision and dedication</p>
-          </div>
-          <div class="staff-card">
-            <img src="images/Manager.jpeg" alt="School Manager" class="staff-photo">
-            <h3>Madam Christine</h3>
-            <p class="role">School Manager</p>
-            <p>Ensuring smooth daily operations and Administration</p>
-          </div>
-          <div class="staff-card">
-            <img src="images\headteacher.jpeg" alt="School Manager" class="staff-photo">
-            <h3>Tr Marvin</h3>
-            <p class="role">Headteacher</p>
-            <p>Oversees curriculum implementation, staff management, and student welfare with integrity and diligence.</p>
-          </div>
+          <div class="staff-card"><img src="images/Director.jpeg" alt="School Director" class="staff-photo"><h3>Mr. Anthony Maina</h3><p class="role">School Director</p><p>Leading our institution with vision and dedication</p></div>
+          <div class="staff-card"><img src="images/Manager.jpeg" alt="School Manager" class="staff-photo"><h3>Madam Christine</h3><p class="role">School Manager</p><p>Ensuring smooth daily operations and Administration</p></div>
+          <div class="staff-card"><img src="images/headteacher.jpeg" alt="Headteacher" class="staff-photo"><h3>Tr Marvin</h3><p class="role">Headteacher</p><p>Oversees curriculum implementation, staff management, and student welfare with integrity and diligence.</p></div>
         </div>
       </div>
-
-      <!-- Teaching Staff -->
       <div class="staff-category" data-aos="fade-left">
         <h2><i class="fas fa-chalkboard-teacher"></i> Teaching Staff</h2>
         <div class="staff-grid">
-          <div class="staff-card">
-            <img src="images/STAFF 10.jpg" alt="ECD Teacher" class="staff-photo">
-            <h3>Female School Teachers❤️</h3>
-            <ul>
-              <li>🚪Experienced ECD & Primary Teachers</li>
-              <li>🚪Trained in child development & Nurturing Values</li>
-              <li>🚪Nurturing and patient approach</li>
-            </ul>
-          </div>
-          <div class="staff-card">
-            <img src="images/STAFF 2.jpg" alt="Primary School Teacher" class="staff-photo">
-            <h3>Male School Teachers😎</h3>
-            <ul>
-              <li>CBC curriculum experts✔️</li>
-              <li>Subject specialists✔️</li>
-              <li>Continuous Professional Development Providing That Father aspect✔️</li>
-            </ul>
-          </div>
-          <div class="staff-card">
-            <img src="images/STAFF 4.jpg" alt="Special Subject Teacher" class="staff-photo">
-            <h3>Group Photo🏅🏅</h3>
-            <ul>
-              <li>Combine To Form A Formidable team✔️</li>
-              <li>Skillful and Innovative Crew✔️</li>
-              <li>TSC Registered And Quallified✔️</li>
-              <li>Friendly And Understanding✔️</li>
-            </ul>
-          </div>
+          <div class="staff-card"><img src="images/STAFF 10.jpg" alt="ECD Teacher" class="staff-photo"><h3>Female School Teachers❤️</h3><ul><li>🚪Experienced ECD &amp; Primary Teachers</li><li>🚪Trained in child development &amp; Nurturing Values</li><li>🚪Nurturing and patient approach</li></ul></div>
+          <div class="staff-card"><img src="images/STAFF 2.jpg" alt="Primary School Teacher" class="staff-photo"><h3>Male School Teachers😎</h3><ul><li>CBC curriculum experts✔️</li><li>Subject specialists✔️</li><li>Continuous Professional Development✔️</li></ul></div>
+          <div class="staff-card"><img src="images/STAFF 4.jpg" alt="Special Subject Teacher" class="staff-photo"><h3>Group Photo🏅🏅</h3><ul><li>Combine To Form A Formidable team✔️</li><li>Skillful and Innovative Crew✔️</li><li>TSC Registered And Qualified✔️</li><li>Friendly And Understanding✔️</li></ul></div>
         </div>
       </div>
-
-      <!-- Support Staff -->
       <div class="staff-category" data-aos="fade-up">
         <h2><i class="fas fa-hands-helping"></i> Support Staff</h2>
         <div class="staff-grid">
-          <div class="staff-card">
-            <img src="images/Admin 1.jpeg" alt="Administrative Support Staff" class="staff-photo">
-            <h3>Administrative Support</h3>
-            <ul>
-              <li>School Secretary</li>
-              <li>Accounts Department</li>
-              <li>Administrative Assistants</li>
-            </ul>
-          </div>
-          <div class="staff-card">
-            <img src="images/GUARD 2.JPG" alt="Guard" class="staff-photo">
-            <h3>Security Department</h3>
-            <ul>
-              <li>Security Personnel</li>
-              <li>Safety Officers</li>
-              <li>Trained And Vigilant</li>
-            </ul>
-          </div>
-          <div class="staff-card">
-            <img src="" alt="Facility Management Staff" class="staff-photo">
-            <h3>Kitchen Department</h3>
-            <ul>
-              <li>Maintenance Staff</li>
-              <li>Kitchen Staff</li>
-              <li>Cleaning Staff</li>
-              <li>Top Staff And Qualified</li>
-            </ul>
-          </div>
-          <div class="staff-card">
-            <img src="images\DRIVERS.jpg" alt="Drivers" class="staff-photo">
-            <h3>Transport Department</h3>
-            <ul>
-              <li>Drivers</li>
-              <li>Transport Management Services</li>
-              <li>Qualified And Registered</li>
-            </ul>
-          </div>
+          <div class="staff-card"><img src="images/Admin 1.jpeg" alt="Administrative Support Staff" class="staff-photo"><h3>Administrative Support</h3><ul><li>School Secretary</li><li>Accounts Department</li><li>Administrative Assistants</li></ul></div>
+          <div class="staff-card"><img src="images/GUARD 2.JPG" alt="Guard" class="staff-photo"><h3>Security Department</h3><ul><li>Security Personnel</li><li>Safety Officers</li><li>Trained And Vigilant</li></ul></div>
+          <div class="staff-card"><h3>Kitchen Department</h3><ul><li>Maintenance Staff</li><li>Kitchen Staff</li><li>Cleaning Staff</li><li>Top Staff And Qualified</li></ul></div>
+          <div class="staff-card"><img src="images/DRIVERS.jpg" alt="Drivers" class="staff-photo"><h3>Transport Department</h3><ul><li>Drivers</li><li>Transport Management Services</li><li>Qualified And Registered</li></ul></div>
         </div>
       </div>
     </div>
-<!-- staff values wheel (mirrors the interactive wheel on the home page) -->
     <div class="staff-values" data-aos="fade-up">
       <h2>Our Staff Values</h2>
-
       <div class="wheel-container">
         <div id="staffWheel" class="wheel" role="list" aria-label="Staff values wheel"></div>
         <div id="staffWheelInfo" class="wheel-info" aria-live="polite" aria-atomic="true">
@@ -180,151 +94,39 @@
           <p id="staffWheelDesc">Select a value to read a short description.</p>
         </div>
       </div>
-
-      <!-- Fallback grid (for very small screens or if JS is disabled) -->
-      <noscript>
-        <div class="values-grid">
-          <div class="value-card"><i class="fas fa-heart"></i><h3>Dedication</h3><p>Committed to student success</p></div>
-          <div class="value-card"><i class="fas fa-brain"></i><h3>Professionalism</h3><p>High professional standards</p></div>
-          <div class="value-card"><i class="fas fa-hands-helping"></i><h3>Care</h3><p>Nurturing student development</p></div>
-          <div class="value-card"><i class="fas fa-star"></i><h3>Excellence</h3><p>Striving for the best</p></div>
-        </div>
-      </noscript>
     </div>
-
     <div class="join-us" data-aos="zoom-in">
       <h2>Join Our Team</h2>
-  <p>We're always looking for passionate educators to join our team. If you're interested in becoming part of Santa Ana Calm Waters Academy, please send your CV to <a href="mailto:calmwaters91@gmail.com">calmwaters91@gmail.com</a> or contact us.</p>
+      <p>We're always looking for passionate educators to join our team. If you're interested in becoming part of Santa Ana Calm Waters Academy, please send your CV to <a href="mailto:calmwaters91@gmail.com">calmwaters91@gmail.com</a> or contact us.</p>
       <a href="contact.html" class="btn">Contact Us</a>
     </div>
   </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    
-    document.addEventListener('DOMContentLoaded', function () {
-      const toggleBtn = document.getElementById('menu-toggle');
-      const navLinks = document.getElementById('nav-links');
-      toggleBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-      });
-    });
-  </script>
-  <!-- Staff values wheel script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const staffValues = [
-        { title: 'Dedication', desc: 'Committed to student success; staff go the extra mile to support learners.' },
-        { title: 'Professionalism', desc: 'High professional standards, punctuality and accountability in all duties.' },
-        { title: 'Empathy', desc: 'Understanding and supporting students’ emotional and social needs.' },
-        { title: 'Teamwork', desc: 'Collaborative culture across departments to deliver excellent learning experiences.' },
-        { title: 'Continuous Learning', desc: 'Ongoing professional development, reflective practice and growth.' },
-        { title: 'Integrity', desc: 'Honesty, fairness and ethical conduct in interactions and decisions.' },
-        { title: 'Respect', desc: 'Upholding dignity for students, parents and colleagues at all times.' },
-        { title: 'Innovation', desc: 'Creative teaching approaches and problem-solving to enrich learning.' }
-      ];
-
-      const wheel = document.getElementById('staffWheel');
-      const infoTitle = document.getElementById('staffWheelTitle');
-      const infoDesc = document.getElementById('staffWheelDesc');
-      if (!wheel) return; // nothing to do if wheel container missing
-
-      const num = staffValues.length;
-      const radius = Math.min(200, Math.floor((wheel.clientWidth || 420) / 2.2));
-
-      for (let i = 0; i < num; i++) {
-        const angle = i * (360 / num);
-        const dot = document.createElement('div');
-        dot.className = 'wheel-dot';
-        dot.setAttribute('role', 'button');
-        dot.setAttribute('tabindex', '0');
-        dot.setAttribute('aria-label', staffValues[i].title + '. Click to select.');
-        dot.style.transform = `rotate(${angle}deg) translate(0, -${radius}px)`;
-
-        const marker = document.createElement('div');
-        marker.className = 'dot-marker';
-        dot.appendChild(marker);
-
-        const label = document.createElement('div');
-        label.className = 'dot-label';
-        label.innerText = staffValues[i].title;
-        label.style.transform = `rotate(${-angle}deg)`;
-        dot.appendChild(label);
-
-        dot.addEventListener('click', () => selectIndex(i, true));
-        dot.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectIndex(i, true); }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); selectIndex((i - 1 + num) % num, true); }
-          if (e.key === 'ArrowRight') { e.preventDefault(); selectIndex((i + 1) % num, true); }
-        });
-
-        wheel.appendChild(dot);
-      }
-
-      const dots = wheel.querySelectorAll('.wheel-dot');
-      let current = 0;
-      let autoTimer = null;
-      let paused = false;
-
-      function updateInfo(i) {
-        infoTitle.innerText = staffValues[i].title;
-        infoDesc.innerText = staffValues[i].desc;
-      }
-
-      function showIndex(i) {
-        const angle = i * (360 / num);
-        wheel.style.transition = 'transform 0.9s cubic-bezier(.22,.9,.37,1)';
-        wheel.style.transform = `rotate(-${angle}deg)`;
-
-        dots.forEach(d => d.classList.remove('active'));
-        setTimeout(() => { dots[i].classList.add('active'); updateInfo(i); }, 600);
-      }
-
-      function selectIndex(i, userTriggered = false) {
-        if (userTriggered) { paused = true; clearTimeout(autoTimer); }
-        current = i % num;
-        showIndex(current);
-        if (userTriggered) {
-          clearTimeout(autoTimer);
-          autoTimer = setTimeout(() => { paused = false; scheduleNext(); }, 6000);
-        }
-      }
-
-      function scheduleNext() {
-        if (paused) return;
-        autoTimer = setTimeout(() => {
-          dots[current].classList.remove('active');
-          current = (current + 1) % num;
-          showIndex(current);
-          scheduleNext();
-        }, 3500);
-      }
-
-      showIndex(0);
-      scheduleNext();
-
-      wheel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') { selectIndex((current - 1 + num) % num, true); }
-        if (e.key === 'ArrowRight') { selectIndex((current + 1) % num, true); }
-      });
-
-      window.addEventListener('resize', () => {
-        const newRadius = Math.min(200, Math.floor((wheel.clientWidth || 420) / 2.2));
-        dots.forEach((dot, i) => {
-          const angle = i * (360 / num);
-          dot.style.transform = `rotate(${angle}deg) translate(0, -${newRadius}px)`;
-          const label = dot.querySelector('.dot-label');
-          if (label) label.style.transform = `rotate(${-angle}deg)`;
-        });
-      });
-    });
-  </script>
-  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Santa Ana Calm Waters Academy. All Rights Reserved.</p>
-    <p>For a greater generation join us in our quest to build leaders of tommorrow</p>
+    <p>For a greater generation join us in our quest to build leaders of tomorrow</p>
     <p>Created with ❤️ by Stuff N'Tuff</p>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.2);text-align:center;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;">Staff Access</p>
+      <a href="https://school-marks-system-mauve.vercel.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 20px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🎓 Teachers Portal</a>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({duration:800,once:true});</script>
+  <script>document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mainNav').classList.toggle('open'));</script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const staffValues=[{title:'Dedication',desc:'Committed to student success; staff go the extra mile to support learners.'},{title:'Professionalism',desc:'High professional standards, punctuality and accountability in all duties.'},{title:'Empathy',desc:'Understanding and supporting students emotional and social needs.'},{title:'Teamwork',desc:'Collaborative culture across departments to deliver excellent learning experiences.'},{title:'Continuous Learning',desc:'Ongoing professional development, reflective practice and growth.'},{title:'Integrity',desc:'Honesty, fairness and ethical conduct in interactions and decisions.'},{title:'Respect',desc:'Upholding dignity for students, parents and colleagues at all times.'},{title:'Innovation',desc:'Creative teaching approaches and problem-solving to enrich learning.'}];
+      const wheel=document.getElementById('staffWheel');const infoTitle=document.getElementById('staffWheelTitle');const infoDesc=document.getElementById('staffWheelDesc');if(!wheel)return;
+      const num=staffValues.length;const radius=Math.min(200,Math.floor((wheel.clientWidth||420)/2.2));
+      for(let i=0;i<num;i++){const angle=i*(360/num);const dot=document.createElement('div');dot.className='wheel-dot';dot.setAttribute('role','button');dot.setAttribute('tabindex','0');dot.style.transform=`rotate(${angle}deg) translate(0, -${radius}px)`;const marker=document.createElement('div');marker.className='dot-marker';dot.appendChild(marker);const label=document.createElement('div');label.className='dot-label';label.innerText=staffValues[i].title;label.style.transform=`rotate(${-angle}deg)`;dot.appendChild(label);dot.addEventListener('click',()=>selectIndex(i,true));wheel.appendChild(dot);}
+      const dots=wheel.querySelectorAll('.wheel-dot');let current=0,autoTimer=null,paused=false;
+      function showIndex(i){wheel.style.transition='transform 0.9s cubic-bezier(.22,.9,.37,1)';wheel.style.transform=`rotate(-${i*(360/num)}deg)`;dots.forEach(d=>d.classList.remove('active'));setTimeout(()=>{dots[i].classList.add('active');infoTitle.innerText=staffValues[i].title;infoDesc.innerText=staffValues[i].desc;},600);}
+      function selectIndex(i,u=false){if(u){paused=true;clearTimeout(autoTimer);}current=i%num;showIndex(current);if(u){clearTimeout(autoTimer);autoTimer=setTimeout(()=>{paused=false;scheduleNext();},6000);}}
+      function scheduleNext(){if(paused)return;autoTimer=setTimeout(()=>{dots[current].classList.remove('active');current=(current+1)%num;showIndex(current);scheduleNext();},3500);}
+      showIndex(0);scheduleNext();
+    });
+  </script>
 </body>
 </html>

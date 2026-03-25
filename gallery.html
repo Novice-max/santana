@@ -10,106 +10,61 @@
   <link rel="canonical" href="https://santanacalmwatersacademy.com/gallery.html" />
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
-    /* ── Lightbox ── */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.93);
-      z-index: 9999;
+    .navbar {
+      background: #1a1a6e;
+      padding: 0 2rem;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      justify-content: space-between;
+      height: 68px;
+      position: relative;
+      z-index: 200;
     }
+    .navbar-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-circle { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); overflow: hidden; flex-shrink: 0; }
+    .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .logo-name { font-size: 13px; font-weight: 500; color: #fff; line-height: 1.3; display: block; }
+    .logo-tagline { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.4px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links li a { display: flex; align-items: center; gap: 6px; padding: 7px 12px; text-decoration: none; color: rgba(255,255,255,0.8); font-size: 13px; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .nav-links li a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .nav-links li a.active { background: rgba(255,255,255,0.18); color: #fff; font-weight: 500; }
+    .nav-links li a svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .nav-divider-item { width: 1px; height: 20px; background: rgba(255,255,255,0.2); margin: 0 4px; display: list-item; list-style: none; }
+    .nav-enroll { background: #fff !important; color: #1a1a6e !important; font-weight: 500 !important; margin-left: 4px; }
+    .nav-enroll:hover { background: rgba(255,255,255,0.9) !important; color: #1a1a6e !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .navbar.open .nav-links { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 68px; left: 0; right: 0; background: #1a1a6e; padding: 12px 1.5rem 16px; gap: 2px; z-index: 300; }
+      .navbar.open .nav-links li { width: 100%; }
+      .navbar.open .nav-links li a { width: 100%; }
+      .nav-divider-item { display: none; }
+      .nav-enroll { margin-left: 0 !important; }
+    }
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; }
     #lightbox.open { display: flex; }
-    #lightbox img {
-      max-width: 92vw;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 6px;
-      box-shadow: 0 0 40px rgba(255,255,255,0.1);
-    }
-    #lightbox-caption {
-      color: #fff;
-      margin-top: 12px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-    #lightbox-close {
-      position: fixed;
-      top: 18px; right: 22px;
-      font-size: 36px;
-      color: #fff;
-      cursor: pointer;
-      line-height: 1;
-      background: none;
-      border: none;
-    }
-    #lightbox-prev, #lightbox-next {
-      position: fixed;
-      top: 50%; transform: translateY(-50%);
-      font-size: 44px;
-      color: #fff;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0 16px;
-      opacity: 0.7;
-    }
+    #lightbox img { max-width: 92vw; max-height: 85vh; object-fit: contain; border-radius: 6px; }
+    #lightbox-caption { color: #fff; margin-top: 12px; font-size: 14px; opacity: 0.7; }
+    #lightbox-close { position: fixed; top: 18px; right: 22px; font-size: 36px; color: #fff; cursor: pointer; background: none; border: none; line-height: 1; }
+    #lightbox-prev, #lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); font-size: 48px; color: #fff; cursor: pointer; background: none; border: none; padding: 0 16px; opacity: 0.6; }
+    #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
     #lightbox-prev { left: 8px; }
     #lightbox-next { right: 8px; }
-    #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
-
-    /* ── Gallery items ── */
-    .gallery-item { cursor: pointer; }
-    .gallery-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      background: #e0e0e0;
-      transition: transform 0.3s;
-    }
-    .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-item { cursor: pointer; overflow: hidden; }
+    .gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; background: #e0e0e0; transition: transform 0.3s; }
+    .gallery-item:hover img { transform: scale(1.04); }
     .gallery-item-hidden { display: none !important; }
-
-    /* skeleton shimmer while loading */
-    .gallery-item img.loading {
-      filter: blur(2px);
-      opacity: 0.5;
-    }
-
-    /* Load more button */
-    #load-more-btn {
-      display: block;
-      margin: 30px auto;
-      padding: 12px 36px;
-      background: #005792;
-      color: #fff;
-      border: none;
-      border-radius: 25px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #load-more-btn:hover { background: #003f6b; }
-    #load-more-btn:disabled { background: #aaa; cursor: default; }
-
-    /* count badge */
-    .gallery-count {
-      text-align: center;
-      color: #666;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
+    .gallery-count { text-align: center; color: #666; font-size: 13px; margin-bottom: 10px; }
+    #load-more-btn { display: block; margin: 30px auto; padding: 12px 36px; background: #1a1a6e; color: #fff; border: none; border-radius: 25px; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.3s; }
+    #load-more-btn:hover { background: #14146b; }
   </style>
 </head>
 <body>
 
-  <!-- Lightbox -->
   <div id="lightbox">
     <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#x2715;</button>
     <button id="lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">&#8249;</button>
@@ -118,21 +73,23 @@
     <button id="lightbox-next" onclick="lightboxNav(1)" aria-label="Next">&#8250;</button>
   </div>
 
-  <header class="navbar">
-    <div class="logo">
-      <img src="images/school logo.png" alt="School Logo" />
-    </div>
-    <nav id="nav-links">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="events.html">School Events</a></li>
-        <li><a href="gallery.html">Student's Gallery</a></li>
-        <li><a href="facilities.html">Student Welfare</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="navbar" id="mainNav">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-circle"><img src="images/new logo.jpeg" alt="School Logo" /></div>
+      <div><span class="logo-name">Santa Ana Academy</span><span class="logo-tagline">Serving God &amp; Humanity</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6.5L8 2l6 4.5V14H10v-3H6v3H2z"/></svg>Home</a></li>
+      <li><a href="events.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>Events</a></li>
+      <li><a href="gallery.html" class="active"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><circle cx="5.5" cy="7" r="1.5"/><path d="M1 11l4-3 3 2.5 2-1.5 5 3.5"/></svg>Gallery</a></li>
+      <li><a href="welfare.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a3 3 0 100 6 3 3 0 000-6z"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>Welfare</a></li>
+      <li><a href="staff.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5.5" cy="5" r="2.5"/><circle cx="11" cy="5" r="2.5"/><path d="M1 14c0-2.5 2-4.5 4.5-4.5S10 11.5 10 14"/><path d="M10.5 9.8C11 9.6 11.5 9.5 12 9.5c2 0 3.5 1.5 3.5 3.5"/></svg>Staff</a></li>
+      <li><a href="transport.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="14" height="7" rx="1.5"/><path d="M1 8h14"/><circle cx="4.5" cy="12" r="1.5"/><circle cx="11.5" cy="12" r="1.5"/><path d="M3 5V3.5A1.5 1.5 0 014.5 2h7A1.5 1.5 0 0113 3.5V5"/></svg>Transport</a></li>
+      <li><a href="contact.html"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H2a1 1 0 00-1 1v7a1 1 0 001 1h2v3l3-3h7a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>Contact</a></li>
+      <li class="nav-divider-item"></li>
+      <li><a href="enroll.html" class="nav-enroll">Enroll Now</a></li>
+    </ul>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
   <main class="gallery-section">
@@ -140,7 +97,6 @@
       <h1>Student Gallery - Santa Ana Calm Waters Academy (CIA) Ruiru</h1>
       <p>Explore our students' best moments — class activities, trips, cultural celebrations and more! ❤️🙌</p>
     </div>
-
     <div class="gallery-filters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="trips">School Trips</button>
@@ -157,7 +113,6 @@
       <button class="filter-btn" data-filter="innovation">Innovation</button>
       <button class="filter-btn" data-filter="recent">Recent Events</button>
     </div>
-
     <div class="gallery-count" id="gallery-count"></div>
     <div class="gallery-grid" id="galleryGrid"></div>
     <button id="load-more-btn">Load More Photos</button>
@@ -169,198 +124,24 @@
   </footer>
 
   <script>
-  // ── EXACT IMAGE LIST (no guessing, no failed requests) ──
-  const IMAGES = [
-    // TRIPS
-    ...['TRIP.jpg','TRIP 1.jpg','TRIP 2.jpg','TRIP 3.jpg','TRIP 4.jpg','TRIP 5.jpg','TRIP 6.jpg','TRIP 7.jpg','TRIP 8.jpg','TRIP 9.jpg','TRIP 10.jpg','TRIP 11.jpg','TRIP 12.jpg','TRIP 13.jpg','TRIP 14.jpg','TRIP 15.jpg','TRIP 16.jpg','TRIP 17.jpg','TRIP 18.jpg','TRIP 19.jpg','TRIP 20.jpg','TRIP 21.jpg','TRIP 22.jpg','TRIP 23.jpg','TRIP 24.jpg','TRIP 25.jpg','TRIP 26.jpg','TRIP 27.jpg','TRIP 28.jpg','TRIP 29.jpg','TRIP 30.jpg','TRIP 31.jpg','TRIP 32.jpg','TRIP 33.jpg','TRIP 34.jpg','TRIP 35.jpg','TRIP 36.jpg','TRIP 37.jpg','TRIP 38.jpg','TRIP 39.jpg','TRIP 40.jpg','TRIP 41.jpg','TRIP 42.jpg','TRIP 43.jpg','TRIP 44.jpg','TRIP 45.jpg','TRIP 46.jpg','TRIP 48.jpg','TRIP 49.jpg','TRIP 50.jpg','TRIP 51.jpg','TRIP 52.jpg','TRIP 53.jpg','TRIP 54.jpg','TRIP 55.jpg','TRIP 56.jpg','TRIP 57.jpg','TRIP 58.jpg','TRIP 59.jpg','TRIP 60.jpg','TRIP 61.jpg','TRIP 62.jpg','TRIP 63.jpg','TRIP 64.jpg','TRIP 65.jpg','TRIP 66.jpg','TRIP 67.jpg','TRIP 68.jpg','TRIP 69.jpg','TRIP 70.jpg','TRIP 71.jpg','TRIP 72.jpg','TRIP 73.jpg','TRIP 74.jpg','TRIP 75.jpg','TRIP 76.jpg','TRIP 77.jpg','TRIP 78.jpg','TRIP 79.jpg','TRIP 80.jpg','TRIP 81.jpg','TRIP 82.jpg','TRIP 83.jpg','TRIP 84.jpg','TRIP 85.jpg','TRIP 86.jpg','TRIP 87.jpg','TRIP 88.jpg','TRIP 89.jpg'].map(f=>({f,c:'trips',l:'School Trip'})),
-
-    // CULTURAL DAY
-    ...['CULTURAL DAY.jpg','CULTURAL DAY 1.jpg','CULTURAL DAY 2 (1).jpg','CULTURAL DAY 2 (2).jpg','CULTURAL DAY 2 (3).jpg','CULTURAL DAY 2 (4).jpg','CULTURAL DAY 2 (5).jpg','CULTURAL DAY 2 (6).jpg','CULTURAL DAY 2 (7).jpg','CULTURAL DAY 2 (8).jpg','CULTURAL DAY 2 (9).jpg'].map(f=>({f,c:'cultural',l:'Cultural Day'})),
-    ...[...Array(63)].map((_,i)=>({f:`CULTURAL DAY 3 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
-    ...[...Array(9)].map((_,i)=>({f:`CULTURAL DAY 4 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
-    ...[...Array(72)].map((_,i)=>({f:`CULTURAL DAY 5 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
-    ...[...Array(5)].map((_,i)=>({f:`CULTURAL DAY 6 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),
-
-    // FUN DAY
-    ...[...Array(5)].map((_,i)=>({f:`FUN DAY (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
-    ...[...Array(9)].map((_,i)=>({f:`FUN DAY 1 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
-    ...[...Array(14)].map((_,i)=>({f:`FUN DAY 2 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),
-
-    // PRESENTATIONS
-    ...['PRESENTATIONS.jpg',...[...Array(20)].map((_,i)=>`PRESENTATIONS ${i+1}.jpg`)].map(f=>({f,c:'presentations',l:'Student Presentation'})),
-
-    // SCOUTS
-    ...['SCOUTS.jpg','SCOUT 1.jpg','SCOUTS 2.jpg','SCOUTS 4.jpg','SCOUTS 5.jpg','SCOUTS 6.jpg','SCOUTS 7.jpg','SCOUTS 8.jpg','SCOUTS 9.JPG','SCOUTS 10.JPG','SCOUTS 11.JPG','SCOUTS 12.JPG'].map(f=>({f,c:'scouts',l:'Scout Activity'})),
-
-    // REWARDS
-    ...['REWARDS.jpg','REWARDS 1.jpg','REWARDS 2.jpg','REWARDS 3.jpg','REWARDS 4.jpg','REWARDS 5.jpg','REWARDS 6.jpg','REWARDS 7.jpg','REWARDS 8.jpg'].map(f=>({f,c:'rewards',l:'Rewards & Recognition 🎁'})),
-
-    // STUDENTS
-    ...['STUDENTS.jpg','STUDENTS 1.jpg','STUDENTS 2.jpg','STUDENTS 3.jpg','STUDENTS 4.jpg','STUDENTS 5.jpg','STUDENTS 6.jpg','STUDENTS 7.jpg'].map(f=>({f,c:'students',l:'Student Activities'})),
-
-    // STAFF
-    ...['Staff.jpg','STAFF 1.jpg','STAFF 2.jpg','STAFF 3.jpg','STAFF 4.jpg','STAFF 5.jpg','STAFF 6.jpg','STAFF 7.jpg','STAFF 8.jpg','STAFF 9.jpg','STAFF 10.jpg','STAFF 11.jpg','STAFF 12.jpg','STAFF 13 (1).jpg','STAFF 13 (2).jpg','STAFF 13 (3).jpg','STAFF 13 (4).jpg','STAFF 13 (5).jpg','TEACHERS.JPG','TEACHERS 1.JPG','TEACHERS 5.JPG',...[...Array(27)].map((_,i)=>`TEACHERS 3 (${i+1}).JPG`),...[...Array(4)].map((_,i)=>`TEACHERS 4 (${i+1}).JPG`)].map(f=>({f,c:'staff',l:'Our Staff'})),
-
-    // GUESTS
-    ...['GUESTS.jpg','GUESTS 1.jpg'].map(f=>({f,c:'guests',l:'Special Guests'})),
-
-    // PRAYER DAY
-    ...['PRAYER DAY (1).JPG','PRAYER DAY (2).JPG','PRAYER DAY 1 (1).JPG','PRAYER DAY 1 (2).JPG'].map(f=>({f,c:'prayer',l:'Prayer Day'})),
-
-    // CLASS PROJECTS
-    ...['CLASS PROJECTS.jpg','CLASS PROJECTS 1.jpg','CLASS PROJECTS 2.jpg'].map(f=>({f,c:'projects',l:'Class Projects'})),
-
-    // INNOVATION
-    ...['INNOVATION  (1).jpg','INNOVATION  (2).jpg','INNOVATION  (3).jpg'].map(f=>({f,c:'innovation',l:'Innovation & Creativity'})),
-
-    // RECENT EVENTS (IMG-* files by date)
-    ...['IMG-20241027-WA0221.jpg','IMG-20241027-WA0236.jpg','IMG-20241027-WA0237.jpg','IMG-20241028-WA0021.jpg','IMG-20241028-WA0028.jpg','IMG-20241028-WA0033.jpg','IMG-20241028-WA0034.jpg','IMG-20241028-WA0044.jpg','IMG-20241028-WA0045.jpg','IMG-20241028-WA0050.jpg','IMG-20241110-WA0041.jpg','IMG-20241110-WA0051.jpg','IMG-20241110-WA0075.jpg','IMG-20241110-WA0077.jpg','IMG-20241110-WA0083.jpg','IMG-20241110-WA0086.jpg','IMG-20250316-WA0001.jpg','IMG-20250316-WA0003.jpg','IMG-20250316-WA0007.jpg','IMG-20250316-WA0009.jpg','IMG-20250316-WA0011.jpg','IMG-20250316-WA0012.jpg','IMG-20250316-WA0014.jpg','IMG-20250316-WA0016.jpg','IMG-20250316-WA0018.jpg','IMG-20250316-WA0020.jpg','IMG-20250316-WA0021.jpg','IMG-20250316-WA0022.jpg','IMG-20250316-WA0027.jpg','IMG-20250316-WA0028.jpg','IMG-20250316-WA0029.jpg','IMG-20250316-WA0032.jpg','IMG-20250316-WA0033.jpg','IMG-20250316-WA0037.jpg','IMG-20250316-WA0038.jpg','IMG-20250316-WA0039.jpg','IMG-20250316-WA0040.jpg','IMG-20250316-WA0041.jpg','IMG-20250316-WA0042.jpg','IMG-20250316-WA0043.jpg','IMG-20250316-WA0044.jpg','IMG-20250502-WA0018.jpg','IMG-20250529-WA0006.jpg','IMG-20250529-WA0022.jpg','IMG-20250529-WA0046.jpg','IMG-20250529-WA0051.jpg','IMG-20250529-WA0055.jpg','IMG-20250529-WA0056.jpg','IMG-20250530-WA0008.jpg','IMG-20250530-WA0010.jpg','IMG-20250530-WA0012.jpg','IMG-20250530-WA0057.jpg','IMG-20250530-WA0065.jpg','IMG-20250530-WA0066.jpg','IMG-20250530-WA0070.jpg','IMG-20250530-WA0071.jpg','IMG-20250530-WA0080.jpg','IMG-20250530-WA0082.jpg','IMG-20250530-WA0083.jpg','IMG-20250530-WA0085.jpg','IMG-20250530-WA0135.jpg','IMG-20250530-WA0154.jpg','IMG-20250530-WA0163.jpg','IMG-20250530-WA0337.jpg','IMG-20250530-WA0340.jpg','IMG-20250530-WA0344.jpg','IMG-20250603-WA0133.jpg','IMG-20250603-WA0226.jpg','IMG-20250603-WA0230.jpg','IMG-20250603-WA0238.jpg','IMG-20250603-WA0246.jpg','IMG-20250625-WA0052.jpg','IMG-20250625-WA0059.jpg','IMG-20250625-WA0060.jpg','IMG-20250625-WA0061.jpg','IMG-20250625-WA0062.jpg','IMG-20250625-WA0066.jpg','IMG-20250625-WA0067.jpg','IMG-20250625-WA0068.jpg','IMG-20250625-WA0069.jpg','IMG-20250625-WA0070.jpg','IMG-20250625-WA0071.jpg','IMG-20250625-WA0072.jpg','IMG-20250625-WA0073.jpg','IMG-20250625-WA0074.jpg','IMG-20250625-WA0075.jpg','IMG-20250625-WA0076.jpg','IMG-20250625-WA0077.jpg','IMG-20250625-WA0078.jpg','IMG-20250625-WA0079.jpg','IMG-20250625-WA0080.jpg','IMG-20250625-WA0081.jpg','IMG-20250625-WA0146.jpg','IMG-20250625-WA0147.jpg','IMG-20250625-WA0148.jpg','IMG-20250625-WA0149.jpg','IMG-20250625-WA0150.jpg','IMG-20250625-WA0151.jpg','IMG-20250625-WA0153.jpg','IMG-20250625-WA0180.jpg','IMG-20250625-WA0204.jpg','IMG-20250625-WA0211.jpg','IMG-20250625-WA0216.jpg','IMG-20250625-WA0224.jpg','IMG-20250702-WA0012.jpg','IMG-20250702-WA0020.jpg','IMG-20250708-WA0056.jpg','IMG-20250708-WA0393.jpg','IMG-20250708-WA0396.jpg','IMG-20250708-WA0397.jpg','IMG-20250708-WA0398.jpg','IMG-20250716-WA0189.jpg','IMG-20250716-WA0190.jpg','IMG-20250716-WA0195.jpg','IMG-20250716-WA0199.jpg','IMG-20250716-WA0207.jpg','IMG-20250716-WA0288.jpg','IMG-20250716-WA0346.jpg','IMG-20250716-WA0384.jpg','IMG-20250716-WA0396.jpg','IMG-20250716-WA0400.jpg','IMG-20250716-WA0436.jpg','IMG-20250716-WA0442.jpg','IMG-20250716-WA0452.jpg','IMG-20250716-WA0453.jpg','IMG-20250716-WA0454.jpg','IMG-20250716-WA0455.jpg','IMG-20250716-WA0459.jpg','IMG-20250716-WA0460.jpg','IMG-20250716-WA0461.jpg','IMG-20250716-WA0462.jpg','IMG-20250716-WA0463.jpg','IMG-20250716-WA0464.jpg','IMG-20250716-WA0465.jpg','IMG-20250716-WA0466.jpg','IMG-20250716-WA0467.jpg','IMG-20250716-WA0469.jpg','IMG-20250716-WA0470.jpg','IMG-20250716-WA0471.jpg','IMG-20250716-WA0472.jpg','IMG-20250716-WA0473.jpg','IMG-20250716-WA0474.jpg','IMG-20250716-WA0475.jpg','IMG-20250716-WA0476.jpg','IMG-20250716-WA0477.jpg','IMG-20250716-WA0478.jpg','IMG-20250716-WA0479.jpg','IMG-20250716-WA0480.jpg','IMG-20250716-WA0481.jpg','IMG-20250716-WA0635.jpg','IMG-20250716-WA0637.jpg','IMG-20250716-WA0650.jpg','IMG-20250716-WA0652.jpg','IMG-20250716-WA0663.jpg','IMG-20250716-WA0664.jpg','IMG-20250716-WA0665.jpg','IMG-20250716-WA0666.jpg','IMG-20250717-WA0004.jpg','IMG-20250717-WA0005.jpg','IMG-20250717-WA0006.jpg','IMG-20250717-WA0007.jpg','IMG-20250717-WA0008.jpg','IMG-20250717-WA0009.jpg','IMG-20250717-WA0010.jpg','IMG-20250717-WA0011.jpg','IMG-20250717-WA0042.jpg','IMG-20250717-WA0056.jpg','IMG-20250717-WA0057.jpg','IMG-20250717-WA0058.jpg','IMG-20250717-WA0059.jpg','IMG-20250717-WA0060.jpg','IMG-20250717-WA0061.jpg','IMG-20250717-WA0063.jpg','IMG-20250717-WA0068.jpg','IMG-20250717-WA0069.jpg','IMG-20250717-WA0073.jpg','IMG-20250717-WA0074.jpg','IMG-20250717-WA0080.jpg','IMG-20250717-WA0088.jpg','IMG-20250717-WA0089.jpg','IMG-20250717-WA0090.jpg','IMG-20250717-WA0091.jpg','IMG-20250717-WA0092.jpg','IMG-20250717-WA0093.jpg','IMG-20250717-WA0094.jpg','IMG-20250717-WA0095.jpg','IMG-20250717-WA0096.jpg','IMG-20250717-WA0103.jpg','IMG-20250717-WA0104.jpg','IMG-20250717-WA0105.jpg','IMG-20250717-WA0106.jpg','IMG-20250717-WA0107.jpg','IMG-20250717-WA0108.jpg','IMG-20250717-WA0109.jpg','IMG-20250717-WA0110.jpg','IMG-20250717-WA0111.jpg','IMG-20250717-WA0112.jpg','IMG-20250717-WA0113.jpg','IMG-20250717-WA0114.jpg','IMG-20250717-WA0116.jpg','IMG-20250717-WA0117.jpg','IMG-20250717-WA0119.jpg','IMG-20250717-WA0121.jpg','IMG-20250717-WA0279.jpg','IMG-20250723-WA0025.jpg','IMG-20250723-WA0026.jpg','IMG-20250723-WA0030.jpg','IMG-20250723-WA0032.jpg','IMG-20250723-WA0037.jpg','IMG-20250723-WA0041.jpg','IMG-20250723-WA0042.jpg','IMG-20250723-WA0044.jpg','IMG-20250723-WA0046.jpg','IMG-20250723-WA0051.jpg','IMG-20250723-WA0052.jpg','IMG-20250723-WA0094.jpg','IMG-20250723-WA0095.jpg','IMG-20250723-WA0096.jpg','IMG-20250723-WA0097.jpg','IMG-20250723-WA0098.jpg','IMG-20250723-WA0101.jpg','IMG-20250723-WA0103.jpg','IMG-20250723-WA0104.jpg','IMG-20250723-WA0105.jpg','IMG-20250723-WA0106.jpg','IMG-20250723-WA0107.jpg','IMG-20250723-WA0136.jpg','IMG-20250723-WA0137.jpg','IMG-20250723-WA0138.jpg','IMG-20250723-WA0139.jpg','IMG-20250723-WA0140.jpg','IMG-20250723-WA0141.jpg','IMG-20250723-WA0142.jpg','IMG-20250723-WA0143.jpg','IMG-20250723-WA0144.jpg','IMG-20250729-WA0001.jpg','IMG-20250729-WA0002.jpg','IMG-20250729-WA0003.jpg','IMG-20250729-WA0004.jpg','IMG-20250729-WA0005.jpg','IMG-20250729-WA0006.jpg','IMG-20250729-WA0007.jpg','IMG-20250729-WA0008.jpg','IMG-20250729-WA0009.jpg','IMG-20250729-WA0067.jpg','IMG-20250729-WA0068.jpg','IMG-20250729-WA0069.jpg','IMG-20250729-WA0070.jpg','IMG-20250729-WA0071.jpg','IMG-20250729-WA0072.jpg','IMG-20250729-WA0073.jpg','IMG-20250729-WA0074.jpg','IMG-20250729-WA0075.jpg','IMG-20250729-WA0076.jpg','IMG-20250729-WA0077.jpg','IMG-20250729-WA0078.jpg','IMG-20250729-WA0079.jpg','IMG-20250729-WA0080.jpg','IMG-20250729-WA0081.jpg','IMG-20250729-WA0082.jpg','IMG-20250729-WA0083.jpg','IMG-20250729-WA0084.jpg','IMG-20250729-WA0085.jpg','IMG-20250729-WA0086.jpg','IMG-20250729-WA0087.jpg','IMG-20250729-WA0088.jpg','IMG-20250729-WA0089.jpg','IMG-20250729-WA0090.jpg','IMG-20250729-WA0091.jpg','IMG-20250729-WA0092.jpg','IMG-20250729-WA0093.jpg','IMG-20250729-WA0094.jpg','IMG-20250729-WA0095.jpg','IMG-20250729-WA0096.jpg','IMG-20250729-WA0097.jpg','IMG-20250729-WA0098.jpg','IMG-20250729-WA0099.jpg','IMG-20250729-WA0100.jpg','IMG-20250729-WA0101.jpg','IMG-20250729-WA0102.jpg','IMG-20250729-WA0104.jpg','IMG-20250729-WA0105.jpg','IMG-20250729-WA0106.jpg','IMG-20250729-WA0107.jpg','IMG-20250729-WA0108.jpg','IMG-20250729-WA0109.jpg','IMG-20250729-WA0110.jpg','IMG-20250729-WA0112.jpg','IMG-20250729-WA0157.jpg','IMG-20250729-WA0159.jpg','IMG-20250729-WA0166.jpg','IMG-20250729-WA0170.jpg','IMG-20250729-WA0172.jpg','IMG-20250729-WA0184.jpg','IMG-20250729-WA0185.jpg','IMG-20250729-WA0186.jpg','IMG-20250729-WA0187.jpg','IMG-20250729-WA0188.jpg','IMG-20250729-WA0190.jpg','IMG-20250729-WA0191.jpg','IMG-20250729-WA0192.jpg','IMG-20250729-WA0193.jpg','IMG-20250729-WA0194.jpg','IMG-20250729-WA0196.jpg','IMG-20250729-WA0197.jpg','IMG-20250729-WA0198.jpg','IMG-20250729-WA0222.jpg','IMG-20250729-WA0223.jpg','IMG-20250729-WA0224.jpg','IMG-20250729-WA0225.jpg','IMG-20250729-WA0226.jpg','IMG-20250729-WA0227.jpg','IMG-20250729-WA0228.jpg','IMG-20250729-WA0229.jpg','IMG-20250729-WA0230.jpg','IMG-20250729-WA0231.jpg','IMG-20250729-WA0232.jpg','IMG-20250729-WA0233.jpg','IMG-20250803-WA0012.jpg','IMG-20250803-WA0013.jpg','IMG-20250803-WA0014.jpg','IMG-20250803-WA0015.jpg','IMG-20250803-WA0016.jpg','IMG-20250803-WA0017.jpg','IMG-20250803-WA0018.jpg','IMG-20250803-WA0019.jpg','IMG-20250803-WA0020.jpg','IMG-20250803-WA0022.jpg','IMG-20250803-WA0023.jpg','IMG-20250803-WA0024.jpg','IMG-20250803-WA0026.jpg','IMG-20250803-WA0027.jpg','IMG-20250803-WA0028.jpg','IMG-20250803-WA0029.jpg','IMG-20250803-WA0030.jpg','IMG-20250803-WA0031.jpg','IMG-20250803-WA0032.jpg','IMG-20250803-WA0033.jpg','IMG-20250803-WA0034.jpg','IMG-20250803-WA0035.jpg','IMG-20250803-WA0045.jpg','IMG-20250803-WA0046.jpg','IMG-20250803-WA0047.jpg','IMG-20250803-WA0048.jpg','IMG-20250803-WA0049.jpg','IMG-20250803-WA0050.jpg','IMG-20250803-WA0051.jpg','IMG-20250803-WA0052.jpg','IMG-20250803-WA0053.jpg','IMG-20250803-WA0054.jpg','IMG-20250803-WA0055.jpg','IMG-20250803-WA0056.jpg','IMG-20250803-WA0057.jpg','IMG-20250803-WA0058.jpg','IMG-20250803-WA0059.jpg','IMG-20250803-WA0060.jpg','IMG-20250803-WA0061.jpg','IMG-20250803-WA0123.jpg','IMG-20250803-WA0174.jpg','IMG-20250803-WA0175.jpg','IMG-20250803-WA0176.jpg','IMG-20250803-WA0177.jpg','IMG-20250803-WA0178.jpg','IMG-20250803-WA0179.jpg','IMG-20250803-WA0180.jpg','IMG-20250803-WA0181.jpg','IMG-20250803-WA0182.jpg','IMG-20250803-WA0183.jpg','IMG-20250803-WA0184.jpg','IMG-20250803-WA0185.jpg','IMG-20250803-WA0186.jpg','IMG-20250803-WA0187.jpg','IMG-20250803-WA0188.jpg','IMG-20250803-WA0189.jpg','IMG-20250803-WA0190.jpg','IMG-20250803-WA0191.jpg','IMG-20250803-WA0192.jpg','IMG-20250803-WA0193.jpg','IMG-20251029-WA0174.jpg','WhatsApp Image 2025-11-10 at 12.25.33_966b7f50.jpg','WhatsApp Image 2025-11-10 at 12.25.34_4b110325.jpg','WhatsApp Image 2025-11-10 at 12.25.34_62ec5e90.jpg','WhatsApp Image 2025-11-10 at 12.25.34_00108ba9.jpg','WhatsApp Image 2025-11-10 at 12.25.35_88381e90.jpg','WhatsApp Image 2025-11-10 at 12.25.36_41c27cd1.jpg'].map(f=>({f,c:'recent',l:'Recent Events'}))
-  ];
-
-  // ── State ──
-  const BATCH = 24;
-  let currentFilter = 'all';
-  let filtered = [];
-  let rendered = 0;
-  let lightboxIndex = 0;
-
-  // ── IntersectionObserver for lazy loading ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
-          img.classList.remove('loading');
-          observer.unobserve(img);
-        }
-      }
-    });
-  }, { rootMargin: '200px 0px' });
-
-  function getFiltered() {
-    return currentFilter === 'all' ? IMAGES : IMAGES.filter(i => i.c === currentFilter);
-  }
-
-  function renderBatch() {
-    const grid = document.getElementById('galleryGrid');
-    const batch = filtered.slice(rendered, rendered + BATCH);
-    const frag = document.createDocumentFragment();
-
-    batch.forEach((item, idx) => {
-      const div = document.createElement('div');
-      div.className = 'gallery-item';
-      div.dataset.index = rendered + idx;
-
-      const img = document.createElement('img');
-      img.dataset.src = `images/${item.f}`;
-      img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="220"%3E%3Crect width="300" height="220" fill="%23e8e8e8"/%3E%3C/svg%3E';
-      img.alt = item.l;
-      img.className = 'loading';
-      img.loading = 'lazy';
-
-      const overlay = document.createElement('div');
-      overlay.className = 'gallery-item-overlay';
-      overlay.innerHTML = `<h3>${item.l}</h3>`;
-
-      div.appendChild(img);
-      div.appendChild(overlay);
-      div.addEventListener('click', () => openLightbox(rendered + idx));
-      frag.appendChild(div);
-      observer.observe(img);
-    });
-
-    grid.appendChild(frag);
-    rendered += batch.length;
-    updateCount();
-    updateBtn();
-  }
-
-  function updateCount() {
-    document.getElementById('gallery-count').textContent =
-      `Showing ${Math.min(rendered, filtered.length)} of ${filtered.length} photos`;
-  }
-
-  function updateBtn() {
-    const btn = document.getElementById('load-more-btn');
-    if (rendered >= filtered.length) {
-      btn.style.display = 'none';
-    } else {
-      btn.style.display = 'block';
-      btn.disabled = false;
-    }
-  }
-
-  function applyFilter(cat) {
-    currentFilter = cat;
-    filtered = getFiltered();
-    rendered = 0;
-    document.getElementById('galleryGrid').innerHTML = '';
-    renderBatch();
-  }
-
-  // ── Lightbox ──
-  function openLightbox(index) {
-    lightboxIndex = index;
-    showLightboxImg();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showLightboxImg() {
-    const item = filtered[lightboxIndex];
-    document.getElementById('lightbox-img').src = `images/${item.f}`;
-    document.getElementById('lightbox-caption').textContent = `${item.l} (${lightboxIndex + 1} / ${filtered.length})`;
-  }
-
-  function lightboxNav(dir) {
-    lightboxIndex = (lightboxIndex + dir + filtered.length) % filtered.length;
-    showLightboxImg();
-  }
-
-  // keyboard nav
-  document.addEventListener('keydown', e => {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') lightboxNav(1);
-    if (e.key === 'ArrowLeft') lightboxNav(-1);
-  });
-
-  // click outside image closes
-  document.getElementById('lightbox').addEventListener('click', e => {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
-  });
-
-  // ── Init ──
-  document.addEventListener('DOMContentLoaded', () => {
-    // menu toggle
-    const toggleBtn = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-    // filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applyFilter(btn.dataset.filter);
-      });
-    });
-
-    // load more
-    document.getElementById('load-more-btn').addEventListener('click', renderBatch);
-
-    // initial load
-    filtered = getFiltered();
-    renderBatch();
+  const IMAGES=[...['TRIP.jpg','TRIP 1.jpg','TRIP 2.jpg','TRIP 3.jpg','TRIP 4.jpg','TRIP 5.jpg','TRIP 6.jpg','TRIP 7.jpg','TRIP 8.jpg','TRIP 9.jpg','TRIP 10.jpg','TRIP 11.jpg','TRIP 12.jpg','TRIP 13.jpg','TRIP 14.jpg','TRIP 15.jpg','TRIP 16.jpg','TRIP 17.jpg','TRIP 18.jpg','TRIP 19.jpg','TRIP 20.jpg','TRIP 21.jpg','TRIP 22.jpg','TRIP 23.jpg','TRIP 24.jpg','TRIP 25.jpg','TRIP 26.jpg','TRIP 27.jpg','TRIP 28.jpg','TRIP 29.jpg','TRIP 30.jpg','TRIP 31.jpg','TRIP 32.jpg','TRIP 33.jpg','TRIP 34.jpg','TRIP 35.jpg','TRIP 36.jpg','TRIP 37.jpg','TRIP 38.jpg','TRIP 39.jpg','TRIP 40.jpg','TRIP 41.jpg','TRIP 42.jpg','TRIP 43.jpg','TRIP 44.jpg','TRIP 45.jpg','TRIP 46.jpg','TRIP 48.jpg','TRIP 49.jpg','TRIP 50.jpg','TRIP 51.jpg','TRIP 52.jpg','TRIP 53.jpg','TRIP 54.jpg','TRIP 55.jpg','TRIP 56.jpg','TRIP 57.jpg','TRIP 58.jpg','TRIP 59.jpg','TRIP 60.jpg','TRIP 61.jpg','TRIP 62.jpg','TRIP 63.jpg','TRIP 64.jpg','TRIP 65.jpg','TRIP 66.jpg','TRIP 67.jpg','TRIP 68.jpg','TRIP 69.jpg','TRIP 70.jpg','TRIP 71.jpg','TRIP 72.jpg','TRIP 73.jpg','TRIP 74.jpg','TRIP 75.jpg','TRIP 76.jpg','TRIP 77.jpg','TRIP 78.jpg','TRIP 79.jpg','TRIP 80.jpg','TRIP 81.jpg','TRIP 82.jpg','TRIP 83.jpg','TRIP 84.jpg','TRIP 85.jpg','TRIP 86.jpg','TRIP 87.jpg','TRIP 88.jpg','TRIP 89.jpg'].map(f=>({f,c:'trips',l:'School Trip'})),...['CULTURAL DAY.jpg','CULTURAL DAY 1.jpg','CULTURAL DAY 2 (1).jpg','CULTURAL DAY 2 (2).jpg','CULTURAL DAY 2 (3).jpg','CULTURAL DAY 2 (4).jpg','CULTURAL DAY 2 (5).jpg','CULTURAL DAY 2 (6).jpg','CULTURAL DAY 2 (7).jpg','CULTURAL DAY 2 (8).jpg','CULTURAL DAY 2 (9).jpg'].map(f=>({f,c:'cultural',l:'Cultural Day'})),...[...Array(63)].map((_,i)=>({f:`CULTURAL DAY 3 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),...[...Array(9)].map((_,i)=>({f:`CULTURAL DAY 4 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),...[...Array(72)].map((_,i)=>({f:`CULTURAL DAY 5 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),...[...Array(5)].map((_,i)=>({f:`CULTURAL DAY 6 (${i+1}).jpg`,c:'cultural',l:'Cultural Day'})),...[...Array(5)].map((_,i)=>({f:`FUN DAY (${i+1}).jpg`,c:'funday',l:'Fun Day'})),...[...Array(9)].map((_,i)=>({f:`FUN DAY 1 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),...[...Array(14)].map((_,i)=>({f:`FUN DAY 2 (${i+1}).jpg`,c:'funday',l:'Fun Day'})),...['PRESENTATIONS.jpg',...[...Array(20)].map((_,i)=>`PRESENTATIONS ${i+1}.jpg`)].map(f=>({f,c:'presentations',l:'Student Presentation'})),...['SCOUTS.jpg','SCOUT 1.jpg','SCOUTS 2.jpg','SCOUTS 4.jpg','SCOUTS 5.jpg','SCOUTS 6.jpg','SCOUTS 7.jpg','SCOUTS 8.jpg','SCOUTS 9.JPG','SCOUTS 10.JPG','SCOUTS 11.JPG','SCOUTS 12.JPG'].map(f=>({f,c:'scouts',l:'Scout Activity'})),...['REWARDS.jpg','REWARDS 1.jpg','REWARDS 2.jpg','REWARDS 3.jpg','REWARDS 4.jpg','REWARDS 5.jpg','REWARDS 6.jpg','REWARDS 7.jpg','REWARDS 8.jpg'].map(f=>({f,c:'rewards',l:'Rewards & Recognition'})),...['STUDENTS.jpg','STUDENTS 1.jpg','STUDENTS 2.jpg','STUDENTS 3.jpg','STUDENTS 4.jpg','STUDENTS 5.jpg','STUDENTS 6.jpg','STUDENTS 7.jpg'].map(f=>({f,c:'students',l:'Student Activities'})),...['Staff.jpg','STAFF 1.jpg','STAFF 2.jpg','STAFF 3.jpg','STAFF 4.jpg','STAFF 5.jpg','STAFF 6.jpg','STAFF 7.jpg','STAFF 8.jpg','STAFF 9.jpg','STAFF 10.jpg','STAFF 11.jpg','STAFF 12.jpg','STAFF 13 (1).jpg','STAFF 13 (2).jpg','STAFF 13 (3).jpg','STAFF 13 (4).jpg','STAFF 13 (5).jpg','TEACHERS.JPG','TEACHERS 1.JPG','TEACHERS 5.JPG',...[...Array(27)].map((_,i)=>`TEACHERS 3 (${i+1}).JPG`),...[...Array(4)].map((_,i)=>`TEACHERS 4 (${i+1}).JPG`)].map(f=>({f,c:'staff',l:'Our Staff'})),...['GUESTS.jpg','GUESTS 1.jpg'].map(f=>({f,c:'guests',l:'Special Guests'})),...['PRAYER DAY (1).JPG','PRAYER DAY (2).JPG','PRAYER DAY 1 (1).JPG','PRAYER DAY 1 (2).JPG'].map(f=>({f,c:'prayer',l:'Prayer Day'})),...['CLASS PROJECTS.jpg','CLASS PROJECTS 1.jpg','CLASS PROJECTS 2.jpg'].map(f=>({f,c:'projects',l:'Class Projects'})),...['INNOVATION  (1).jpg','INNOVATION  (2).jpg','INNOVATION  (3).jpg'].map(f=>({f,c:'innovation',l:'Innovation & Creativity'})),...['IMG-20241027-WA0221.jpg','IMG-20241027-WA0236.jpg','IMG-20241027-WA0237.jpg','IMG-20241028-WA0021.jpg','IMG-20241028-WA0028.jpg','IMG-20241028-WA0033.jpg','IMG-20241028-WA0034.jpg','IMG-20241028-WA0044.jpg','IMG-20241028-WA0045.jpg','IMG-20241028-WA0050.jpg','IMG-20241110-WA0041.jpg','IMG-20241110-WA0051.jpg','IMG-20241110-WA0075.jpg','IMG-20241110-WA0077.jpg','IMG-20241110-WA0083.jpg','IMG-20241110-WA0086.jpg','IMG-20250316-WA0001.jpg','IMG-20250316-WA0003.jpg','IMG-20250316-WA0007.jpg','IMG-20250316-WA0009.jpg','IMG-20250316-WA0011.jpg','IMG-20250316-WA0012.jpg','IMG-20250316-WA0014.jpg','IMG-20250316-WA0016.jpg','IMG-20250316-WA0018.jpg','IMG-20250316-WA0020.jpg','IMG-20250316-WA0021.jpg','IMG-20250316-WA0022.jpg','IMG-20250316-WA0027.jpg','IMG-20250316-WA0028.jpg','IMG-20250316-WA0029.jpg','IMG-20250316-WA0032.jpg','IMG-20250316-WA0033.jpg','IMG-20250316-WA0037.jpg','IMG-20250316-WA0038.jpg','IMG-20250316-WA0039.jpg','IMG-20250316-WA0040.jpg','IMG-20250316-WA0041.jpg','IMG-20250316-WA0042.jpg','IMG-20250316-WA0043.jpg','IMG-20250316-WA0044.jpg','IMG-20250502-WA0018.jpg','IMG-20250529-WA0006.jpg','IMG-20250529-WA0022.jpg','IMG-20250529-WA0046.jpg','IMG-20250529-WA0051.jpg','IMG-20250529-WA0055.jpg','IMG-20250529-WA0056.jpg','IMG-20250530-WA0008.jpg','IMG-20250530-WA0010.jpg','IMG-20250530-WA0012.jpg','IMG-20250530-WA0057.jpg','IMG-20250530-WA0065.jpg','IMG-20250530-WA0066.jpg','IMG-20250530-WA0070.jpg','IMG-20250530-WA0071.jpg','IMG-20250530-WA0080.jpg','IMG-20250530-WA0082.jpg','IMG-20250530-WA0083.jpg','IMG-20250530-WA0085.jpg','IMG-20250530-WA0135.jpg','IMG-20250530-WA0154.jpg','IMG-20250530-WA0163.jpg','IMG-20250530-WA0337.jpg','IMG-20250530-WA0340.jpg','IMG-20250530-WA0344.jpg','IMG-20250603-WA0133.jpg','IMG-20250603-WA0226.jpg','IMG-20250603-WA0230.jpg','IMG-20250603-WA0238.jpg','IMG-20250603-WA0246.jpg','IMG-20250625-WA0052.jpg','IMG-20250625-WA0059.jpg','IMG-20250625-WA0060.jpg','IMG-20250625-WA0061.jpg','IMG-20250625-WA0062.jpg','IMG-20250625-WA0066.jpg','IMG-20250625-WA0067.jpg','IMG-20250625-WA0068.jpg','IMG-20250625-WA0069.jpg','IMG-20250625-WA0070.jpg','IMG-20250625-WA0071.jpg','IMG-20250625-WA0072.jpg','IMG-20250625-WA0073.jpg','IMG-20250625-WA0074.jpg','IMG-20250625-WA0075.jpg','IMG-20250625-WA0076.jpg','IMG-20250625-WA0077.jpg','IMG-20250625-WA0078.jpg','IMG-20250625-WA0079.jpg','IMG-20250625-WA0080.jpg','IMG-20250625-WA0081.jpg','IMG-20250625-WA0146.jpg','IMG-20250625-WA0147.jpg','IMG-20250625-WA0148.jpg','IMG-20250625-WA0149.jpg','IMG-20250625-WA0150.jpg','IMG-20250625-WA0151.jpg','IMG-20250625-WA0153.jpg','IMG-20250625-WA0180.jpg','IMG-20250625-WA0204.jpg','IMG-20250625-WA0211.jpg','IMG-20250625-WA0216.jpg','IMG-20250625-WA0224.jpg','IMG-20250702-WA0012.jpg','IMG-20250702-WA0020.jpg','IMG-20250708-WA0056.jpg','IMG-20250708-WA0393.jpg','IMG-20250708-WA0396.jpg','IMG-20250708-WA0397.jpg','IMG-20250708-WA0398.jpg','IMG-20250716-WA0189.jpg','IMG-20250716-WA0190.jpg','IMG-20250716-WA0195.jpg','IMG-20250716-WA0199.jpg','IMG-20250716-WA0207.jpg','IMG-20250716-WA0288.jpg','IMG-20250716-WA0346.jpg','IMG-20250716-WA0384.jpg','IMG-20250716-WA0396.jpg','IMG-20250716-WA0400.jpg','IMG-20250716-WA0436.jpg','IMG-20250716-WA0442.jpg','IMG-20250716-WA0452.jpg','IMG-20250716-WA0453.jpg','IMG-20250716-WA0454.jpg','IMG-20250716-WA0455.jpg','IMG-20250716-WA0459.jpg','IMG-20250716-WA0460.jpg','IMG-20250716-WA0461.jpg','IMG-20250716-WA0462.jpg','IMG-20250716-WA0463.jpg','IMG-20250716-WA0464.jpg','IMG-20250716-WA0465.jpg','IMG-20250716-WA0466.jpg','IMG-20250716-WA0467.jpg','IMG-20250716-WA0469.jpg','IMG-20250716-WA0470.jpg','IMG-20250716-WA0471.jpg','IMG-20250716-WA0472.jpg','IMG-20250716-WA0473.jpg','IMG-20250716-WA0474.jpg','IMG-20250716-WA0475.jpg','IMG-20250716-WA0476.jpg','IMG-20250716-WA0477.jpg','IMG-20250716-WA0478.jpg','IMG-20250716-WA0479.jpg','IMG-20250716-WA0480.jpg','IMG-20250716-WA0481.jpg','IMG-20250716-WA0635.jpg','IMG-20250716-WA0637.jpg','IMG-20250716-WA0650.jpg','IMG-20250716-WA0652.jpg','IMG-20250716-WA0663.jpg','IMG-20250716-WA0664.jpg','IMG-20250716-WA0665.jpg','IMG-20250716-WA0666.jpg','IMG-20250717-WA0004.jpg','IMG-20250717-WA0005.jpg','IMG-20250717-WA0006.jpg','IMG-20250717-WA0007.jpg','IMG-20250717-WA0008.jpg','IMG-20250717-WA0009.jpg','IMG-20250717-WA0010.jpg','IMG-20250717-WA0011.jpg','IMG-20250717-WA0042.jpg','IMG-20250717-WA0056.jpg','IMG-20250717-WA0057.jpg','IMG-20250717-WA0058.jpg','IMG-20250717-WA0059.jpg','IMG-20250717-WA0060.jpg','IMG-20250717-WA0061.jpg','IMG-20250717-WA0063.jpg','IMG-20250717-WA0068.jpg','IMG-20250717-WA0069.jpg','IMG-20250717-WA0073.jpg','IMG-20250717-WA0074.jpg','IMG-20250717-WA0080.jpg','IMG-20250717-WA0088.jpg','IMG-20250717-WA0089.jpg','IMG-20250717-WA0090.jpg','IMG-20250717-WA0091.jpg','IMG-20250717-WA0092.jpg','IMG-20250717-WA0093.jpg','IMG-20250717-WA0094.jpg','IMG-20250717-WA0095.jpg','IMG-20250717-WA0096.jpg','IMG-20250717-WA0103.jpg','IMG-20250717-WA0104.jpg','IMG-20250717-WA0105.jpg','IMG-20250717-WA0106.jpg','IMG-20250717-WA0107.jpg','IMG-20250717-WA0108.jpg','IMG-20250717-WA0109.jpg','IMG-20250717-WA0110.jpg','IMG-20250717-WA0111.jpg','IMG-20250717-WA0112.jpg','IMG-20250717-WA0113.jpg','IMG-20250717-WA0114.jpg','IMG-20250717-WA0116.jpg','IMG-20250717-WA0117.jpg','IMG-20250717-WA0119.jpg','IMG-20250717-WA0121.jpg','IMG-20250717-WA0279.jpg','IMG-20250723-WA0025.jpg','IMG-20250723-WA0026.jpg','IMG-20250723-WA0030.jpg','IMG-20250723-WA0032.jpg','IMG-20250723-WA0037.jpg','IMG-20250723-WA0041.jpg','IMG-20250723-WA0042.jpg','IMG-20250723-WA0044.jpg','IMG-20250723-WA0046.jpg','IMG-20250723-WA0051.jpg','IMG-20250723-WA0052.jpg','IMG-20250723-WA0094.jpg','IMG-20250723-WA0095.jpg','IMG-20250723-WA0096.jpg','IMG-20250723-WA0097.jpg','IMG-20250723-WA0098.jpg','IMG-20250723-WA0101.jpg','IMG-20250723-WA0103.jpg','IMG-20250723-WA0104.jpg','IMG-20250723-WA0105.jpg','IMG-20250723-WA0106.jpg','IMG-20250723-WA0107.jpg','IMG-20250723-WA0136.jpg','IMG-20250723-WA0137.jpg','IMG-20250723-WA0138.jpg','IMG-20250723-WA0139.jpg','IMG-20250723-WA0140.jpg','IMG-20250723-WA0141.jpg','IMG-20250723-WA0142.jpg','IMG-20250723-WA0143.jpg','IMG-20250723-WA0144.jpg','IMG-20250729-WA0001.jpg','IMG-20250729-WA0002.jpg','IMG-20250729-WA0003.jpg','IMG-20250729-WA0004.jpg','IMG-20250729-WA0005.jpg','IMG-20250729-WA0006.jpg','IMG-20250729-WA0007.jpg','IMG-20250729-WA0008.jpg','IMG-20250729-WA0009.jpg','IMG-20250729-WA0067.jpg','IMG-20250729-WA0068.jpg','IMG-20250729-WA0069.jpg','IMG-20250729-WA0070.jpg','IMG-20250729-WA0071.jpg','IMG-20250729-WA0072.jpg','IMG-20250729-WA0073.jpg','IMG-20250729-WA0074.jpg','IMG-20250729-WA0075.jpg','IMG-20250729-WA0076.jpg','IMG-20250729-WA0077.jpg','IMG-20250729-WA0078.jpg','IMG-20250729-WA0079.jpg','IMG-20250729-WA0080.jpg','IMG-20250729-WA0081.jpg','IMG-20250729-WA0082.jpg','IMG-20250729-WA0083.jpg','IMG-20250729-WA0084.jpg','IMG-20250729-WA0085.jpg','IMG-20250729-WA0086.jpg','IMG-20250729-WA0087.jpg','IMG-20250729-WA0088.jpg','IMG-20250729-WA0089.jpg','IMG-20250729-WA0090.jpg','IMG-20250729-WA0091.jpg','IMG-20250729-WA0092.jpg','IMG-20250729-WA0093.jpg','IMG-20250729-WA0094.jpg','IMG-20250729-WA0095.jpg','IMG-20250729-WA0096.jpg','IMG-20250729-WA0097.jpg','IMG-20250729-WA0098.jpg','IMG-20250729-WA0099.jpg','IMG-20250729-WA0100.jpg','IMG-20250729-WA0101.jpg','IMG-20250729-WA0102.jpg','IMG-20250729-WA0104.jpg','IMG-20250729-WA0105.jpg','IMG-20250729-WA0106.jpg','IMG-20250729-WA0107.jpg','IMG-20250729-WA0108.jpg','IMG-20250729-WA0109.jpg','IMG-20250729-WA0110.jpg','IMG-20250729-WA0112.jpg','IMG-20250729-WA0157.jpg','IMG-20250729-WA0159.jpg','IMG-20250729-WA0166.jpg','IMG-20250729-WA0170.jpg','IMG-20250729-WA0172.jpg','IMG-20250729-WA0184.jpg','IMG-20250729-WA0185.jpg','IMG-20250729-WA0186.jpg','IMG-20250729-WA0187.jpg','IMG-20250729-WA0188.jpg','IMG-20250729-WA0190.jpg','IMG-20250729-WA0191.jpg','IMG-20250729-WA0192.jpg','IMG-20250729-WA0193.jpg','IMG-20250729-WA0194.jpg','IMG-20250729-WA0196.jpg','IMG-20250729-WA0197.jpg','IMG-20250729-WA0198.jpg','IMG-20250729-WA0222.jpg','IMG-20250729-WA0223.jpg','IMG-20250729-WA0224.jpg','IMG-20250729-WA0225.jpg','IMG-20250729-WA0226.jpg','IMG-20250729-WA0227.jpg','IMG-20250729-WA0228.jpg','IMG-20250729-WA0229.jpg','IMG-20250729-WA0230.jpg','IMG-20250729-WA0231.jpg','IMG-20250729-WA0232.jpg','IMG-20250729-WA0233.jpg','IMG-20250803-WA0012.jpg','IMG-20250803-WA0013.jpg','IMG-20250803-WA0014.jpg','IMG-20250803-WA0015.jpg','IMG-20250803-WA0016.jpg','IMG-20250803-WA0017.jpg','IMG-20250803-WA0018.jpg','IMG-20250803-WA0019.jpg','IMG-20250803-WA0020.jpg','IMG-20250803-WA0022.jpg','IMG-20250803-WA0023.jpg','IMG-20250803-WA0024.jpg','IMG-20250803-WA0026.jpg','IMG-20250803-WA0027.jpg','IMG-20250803-WA0028.jpg','IMG-20250803-WA0029.jpg','IMG-20250803-WA0030.jpg','IMG-20250803-WA0031.jpg','IMG-20250803-WA0032.jpg','IMG-20250803-WA0033.jpg','IMG-20250803-WA0034.jpg','IMG-20250803-WA0035.jpg','IMG-20250803-WA0045.jpg','IMG-20250803-WA0046.jpg','IMG-20250803-WA0047.jpg','IMG-20250803-WA0048.jpg','IMG-20250803-WA0049.jpg','IMG-20250803-WA0050.jpg','IMG-20250803-WA0051.jpg','IMG-20250803-WA0052.jpg','IMG-20250803-WA0053.jpg','IMG-20250803-WA0054.jpg','IMG-20250803-WA0055.jpg','IMG-20250803-WA0056.jpg','IMG-20250803-WA0057.jpg','IMG-20250803-WA0058.jpg','IMG-20250803-WA0059.jpg','IMG-20250803-WA0060.jpg','IMG-20250803-WA0061.jpg','IMG-20250803-WA0123.jpg','IMG-20250803-WA0174.jpg','IMG-20250803-WA0175.jpg','IMG-20250803-WA0176.jpg','IMG-20250803-WA0177.jpg','IMG-20250803-WA0178.jpg','IMG-20250803-WA0179.jpg','IMG-20250803-WA0180.jpg','IMG-20250803-WA0181.jpg','IMG-20250803-WA0182.jpg','IMG-20250803-WA0183.jpg','IMG-20250803-WA0184.jpg','IMG-20250803-WA0185.jpg','IMG-20250803-WA0186.jpg','IMG-20250803-WA0187.jpg','IMG-20250803-WA0188.jpg','IMG-20250803-WA0189.jpg','IMG-20250803-WA0190.jpg','IMG-20250803-WA0191.jpg','IMG-20250803-WA0192.jpg','IMG-20250803-WA0193.jpg','IMG-20251029-WA0174.jpg','WhatsApp Image 2025-11-10 at 12.25.33_966b7f50.jpg','WhatsApp Image 2025-11-10 at 12.25.34_4b110325.jpg','WhatsApp Image 2025-11-10 at 12.25.34_62ec5e90.jpg','WhatsApp Image 2025-11-10 at 12.25.34_00108ba9.jpg','WhatsApp Image 2025-11-10 at 12.25.35_88381e90.jpg','WhatsApp Image 2025-11-10 at 12.25.36_41c27cd1.jpg'].map(f=>({f,c:'recent',l:'Recent Events'}))];
+  const BATCH=24;let currentFilter='all',filtered=[],rendered=0,lightboxIndex=0;
+  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const img=e.target;if(img.dataset.src){img.src=img.dataset.src;img.removeAttribute('data-src');observer.unobserve(img);}}});},{rootMargin:'200px 0px'});
+  function getFiltered(){return currentFilter==='all'?IMAGES:IMAGES.filter(i=>i.c===currentFilter);}
+  function renderBatch(){const grid=document.getElementById('galleryGrid');const batch=filtered.slice(rendered,rendered+BATCH);const frag=document.createDocumentFragment();batch.forEach((item,idx)=>{const div=document.createElement('div');div.className='gallery-item';div.dataset.index=rendered+idx;const img=document.createElement('img');img.dataset.src=`images/${item.f}`;img.src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="220"%3E%3Crect width="300" height="220" fill="%23e8e8e8"/%3E%3C/svg%3E';img.alt=item.l;img.loading='lazy';const overlay=document.createElement('div');overlay.className='gallery-item-overlay';overlay.innerHTML=`<h3>${item.l}</h3>`;div.appendChild(img);div.appendChild(overlay);div.addEventListener('click',()=>openLightbox(rendered+idx));frag.appendChild(div);observer.observe(img);});grid.appendChild(frag);rendered+=batch.length;document.getElementById('gallery-count').textContent=`Showing ${Math.min(rendered,filtered.length)} of ${filtered.length} photos`;const btn=document.getElementById('load-more-btn');btn.style.display=rendered>=filtered.length?'none':'block';}
+  function applyFilter(cat){currentFilter=cat;filtered=getFiltered();rendered=0;document.getElementById('galleryGrid').innerHTML='';renderBatch();}
+  function openLightbox(index){lightboxIndex=index;showLightboxImg();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+  function showLightboxImg(){const item=filtered[lightboxIndex];document.getElementById('lightbox-img').src=`images/${item.f}`;document.getElementById('lightbox-caption').textContent=`${item.l} — ${lightboxIndex+1} / ${filtered.length}`;}
+  function lightboxNav(dir){lightboxIndex=(lightboxIndex+dir+filtered.length)%filtered.length;showLightboxImg();}
+  document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')lightboxNav(1);if(e.key==='ArrowLeft')lightboxNav(-1);});
+  document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLightbox();});
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mainNav').classList.toggle('open'));
+    document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter(btn.dataset.filter);});});
+    document.getElementById('load-more-btn').addEventListener('click',renderBatch);
+    filtered=getFiltered();renderBatch();
   });
   </script>
-
 </body>
 </html>
