@@ -45,7 +45,6 @@
 </head>
 <body>
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -281,32 +280,6 @@
   </div>
 </section>
 
-<!-- Vision and Mission -->
-<section class="vision-mission-container" data-aos="zoom-in-up">
-  <section class="vision-mission-section">
-    <div class="oval-card vision-card fixed-card">
-      <div class="overlay">
-        <h2><i class="fas fa-lightbulb"></i> Our Vision</h2>
-        <p>To develop students who will act as transforming agents nationally and globally.</p>
-      </div>
-    </div>
-    <div class="oval-card mission-card fixed-card">
-      <div class="overlay">
-        <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
-        <p>To provide an excellent curriculum, wide range of co-curricular activities and a caring diverse learning environment.</p>
-      </div>
-    </div>
-    <div class="floating-cards-container">
-      <div class="floating-card"><p>At Santa Ana Calm Waters Academy, we strive to build a strong foundation for every child by equipping them with the knowledge, skills, and values needed to succeed in life.</p></div>
-      <div class="floating-card"><p>Our motto, "Serving God and Humanity Through Education," reflects our dedication to instilling core Christian values while providing quality education that prepares students for the future.</p></div>
-      <div class="floating-card"><p>We aim to create a nurturing environment where students can thrive academically, socially, and spiritually.</p></div>
-      <div class="floating-card"><p>Our commitment to discipline and care ensures that each child receives the attention they need to succeed.</p></div>
-      <div class="floating-card"><p>Join us in our quest to nurture the leaders of tomorrow and make a positive impact in our community.</p></div>
-      <div class="floating-card"><p>"WE BELIEVE WE CAN MAKE IT HAPPEN WITH THE RIGHT PEOPLE AND THE RIGHT HEART"</p></div>
-    </div>
-  </section>
-</section>
-
 <!-- Contact Section -->
 <section id="contact" class="contact-section">
   <div class="contact-container">
@@ -335,31 +308,12 @@
   <p>&copy; 2026 Santa Ana Calm Waters Academy. All Rights Reserved.</p>
   <p>For a greater generation join us in our quest to build leaders of tomorrow</p>
   <p>Created with ❤️ by Stuff N'Tuff</p>
-
-  <!-- Teachers Portal -->
   <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;">
     <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">Staff Access</p>
-    <a 
-      href="https://school-marks-system-mauve.vercel.app" 
-      target="_blank" 
-      style="
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255,255,255,0.1);
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        padding: 8px 20px;
-        border-radius: 20px;
-        border: 1px solid rgba(255,255,255,0.25);
-        transition: all 0.3s;
-      "
-      onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)'"
-      onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.25)'"
-    >
+    <a href="https://school-marks-system-mauve.vercel.app" target="_blank"
+      style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#ffffff;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.5px;padding:8px 20px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);transition:all 0.3s;"
+      onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+      onmouseout="this.style.background='rgba(255,255,255,0.1)'">
       🎓 Teachers Portal
     </a>
   </div>
@@ -426,38 +380,33 @@
       dot.setAttribute('role', 'button');
       dot.setAttribute('tabindex', '0');
       dot.style.transform = `rotate(${angle}deg) translate(0, -${radius}px)`;
-      const marker = document.createElement('div');
-      marker.className = 'dot-marker';
-      dot.appendChild(marker);
-      const label = document.createElement('div');
-      label.className = 'dot-label';
-      label.innerText = activities[i].title;
-      label.style.transform = `rotate(${-angle}deg)`;
-      dot.appendChild(label);
+      const marker = document.createElement('div'); marker.className = 'dot-marker'; dot.appendChild(marker);
+      const label = document.createElement('div'); label.className = 'dot-label'; label.innerText = activities[i].title; label.style.transform = `rotate(${-angle}deg)`; dot.appendChild(label);
       dot.addEventListener('click', () => selectIndex(i, true));
       wheel.appendChild(dot);
     }
     const dots = wheel.querySelectorAll('.wheel-dot');
     let current = 0, autoTimer = null, paused = false;
     function showIndex(i) {
-      const angle = i * (360 / num);
       wheel.style.transition = 'transform 0.9s cubic-bezier(.22,.9,.37,1)';
-      wheel.style.transform = `rotate(-${angle}deg)`;
+      wheel.style.transform = `rotate(-${i * (360 / num)}deg)`;
       dots.forEach(d => d.classList.remove('active'));
       setTimeout(() => { dots[i].classList.add('active'); infoTitle.innerText = activities[i].title; infoDesc.innerText = activities[i].desc; }, 700);
     }
     function selectIndex(i, userTriggered = false) {
       if (userTriggered) { paused = true; clearTimeout(autoTimer); }
-      current = i % num;
-      showIndex(current);
+      current = i % num; showIndex(current);
       if (userTriggered) { clearTimeout(autoTimer); autoTimer = setTimeout(() => { paused = false; scheduleNext(); }, 6000); }
     }
     function scheduleNext() {
       if (paused) return;
       autoTimer = setTimeout(() => { dots[current].classList.remove('active'); current = (current + 1) % num; showIndex(current); scheduleNext(); }, 3500);
     }
-    showIndex(0);
-    scheduleNext();
+    showIndex(0); scheduleNext();
+    window.addEventListener('resize', () => {
+      const r = Math.min(200, Math.floor((wheel.clientWidth || 420) / 2.2));
+      dots.forEach((dot, i) => { dot.style.transform = `rotate(${i*(360/num)}deg) translate(0, -${r}px)`; const l = dot.querySelector('.dot-label'); if(l) l.style.transform = `rotate(${-(i*(360/num))}deg)`; });
+    });
   });
 </script>
 
